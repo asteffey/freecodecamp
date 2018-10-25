@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <script src="../testable-projects-fcc-v1-bundle.js"></script>
+  <h1 id="title">Beatles Survey</h1>
+  <p id="description">Please take a few minutes to answer a few questions about the Beatles.</p>
+  <form id="survey-form"
+        name="survey-form">
+    <label for="name"
+          id="name-label">Name:</label> <input id="name"
+          name="name"
+          placeholder="Enter your name"
+          required=""
+          type="text"><br>
+    <label for="email"
+          id="email-label">Email:</label><input id="email"
+          name="email"
+          placeholder="Enter your email address"
+          required=""
+          type="email"><br>
+    <label for="number"
+          id="number-label">Age:</label> <input id="number"
+          max="200"
+          min="1"
+          name="age"
+          placeholder="Enter your age"
+          type="number"><br>
+    <label for="dropdown"
+          id="dropdown-label">Favorite Beatle</label> <select id="dropdown"
+          name="sex"
+          required="">
+      <option disabled
+              selected
+              value="">
+        Select your sex
+      </option>
+      <option value="other">
+        Not Specified
+      </option>
+      <option value="male">
+        Male
+      </option>
+      <option value="female">
+        Female
+      </option>
+    </select><br>
+    <fieldset id="favorite-beatle-fieldset">
+      <legend>Favorite Beatle</legend> <label><input name="favorite-beatle"
+             type="radio"
+             value="John">John</label><br>
+      <label><input name="favorite-beatle"
+             type="radio"
+             value="Paul">Paul</label><br>
+      <label><input name="favorite-beatle"
+             type="radio"
+             value="George">George</label><br>
+      <label><input name="favorite-beatle"
+             type="radio"
+             value="Ringo">Ringo</label>
+    </fieldset>
+    <fieldset id="beatle-albums-fieldset">
+      <legend>Beatle Albums Owned</legend> <label><input name="beatle-album"
+             type="checkbox"
+             value="please-please-me">Please Please Me</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="with-the-beatles">With the Beatles</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="a-hard-days-night">A Hard Day's Night</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="beatles-for-sale">Beatles For Sale</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="help">Help!</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="rubber-soul">Rubber Soul</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="revolver">Revolver</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="sgt-pepper">Sgt Pepper's Lonely Hearts Club Band</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="magical-mystery-tour">Magical Mystery Tour</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="white-album">The Bealtes (White Album)</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="yellow-submarine">Yellow Submarine</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="abbey-road">Abbey Road</label><br>
+      <label><input name="beatle-album"
+             type="checkbox"
+             value="let-it-be">Let It Be</label><br>
+    </fieldset>
+    <fieldset>
+      <legend>What is your favorite thing about the Beatles?</legend> 
+      <textarea id="comments"
+                name="comments"
+                placeholder="Please enter your favorite thing about the Beatles here..."></textarea>
+    </fieldset><button id="submit"
+          type="submit">Submit</button>
+  </form>
+</body>
+</html>
