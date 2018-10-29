@@ -1,22 +1,40 @@
 main {
-    background-color: #F6F6F4;
-    border-radius: 2%;
-    padding: 2%;
-    margin: 2%;
+    background-color:rgb(209, 209, 196);
+    border-radius: 15px;
+    padding: 15px;
+    margin: auto; 
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 800px;
 }
 
-#personal-info-fieldset > label {
-    display: inline-block;
-    width: 4em;
-    text-align: right;
-    margin-right: 1em;
+fieldset {
+    padding-left: 12px;
+    padding-right: 12px;
+    border-width: 2px;
 }
 
-#personal-info-fieldset > input {
-    display: inline-block;
-    width: 500px;
-    padding: 0;
-    margin: 0;
+#personal-info-fieldset > div {
+    display: grid;
+    grid-template-columns: 4em minmax(400px, auto) 0;
 }
+
+@media (max-width: 595px) {
+    #personal-info-fieldset > div {
+        display: flex;
+        flex-direction: column;
+    }
+    #personal-info-fieldset br {display: none;}
+    #personal-info-fieldset label {
+        margin-top: .25em;
+    }
+}
+
+
+
+#personal-info-fieldset label, #personal-info-fieldset input, #personal-info-fieldset select {
+    display: block;
+}
+
 
 

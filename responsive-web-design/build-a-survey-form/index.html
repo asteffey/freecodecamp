@@ -13,8 +13,10 @@
     <form id="survey-form"
           name="survey-form">
       <fieldset id="personal-info-fieldset">
+          <legend>Personal Information</legend>
+        <div>
         <label for="name"
-                  id="name-label">Name:</label> <input id="name"
+                  id="name-label">Name:</label><input id="name"
                   name="name"
                   placeholder="Enter your name"
                   required=""
@@ -26,14 +28,14 @@
                   required=""
                   type="email"><br>
         <label for="number"
-                  id="number-label">Age:</label> <input id="number"
+                  id="number-label">Age:</label><input id="number"
                   max="200"
                   min="1"
                   name="age"
                   placeholder="Enter your age"
                   type="number"><br>
         <label for="dropdown"
-                  id="dropdown-label">Sex:</label> <select id="dropdown"
+                  id="dropdown-label">Sex:</label><select id="dropdown"
                   name="sex"
                   required="">
           <option disabled
@@ -50,7 +52,8 @@
           <option value="female">
             Female
           </option>
-        </select> <legend>Personal Information</legend>
+        </select>
+      </div>
       </fieldset>
       <fieldset id="favorite-beatle-fieldset">
         <legend>Favorite Beatle</legend> <label><input name="favorite-beatle"
