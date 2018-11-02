@@ -48,17 +48,30 @@ legend {
 #personal-info-fieldset > div {
     display: grid;
     grid-template-columns: 4em minmax(400px, auto) 0;
+    align-items: center;
 }
 
 @media (max-width: 595px) {
     #personal-info-fieldset > div {
         display: flex;
         flex-direction: column;
+        align-items: stretch;
     }
     #personal-info-fieldset br {display: none;}
     #personal-info-fieldset label {
         margin-top: .25em;
     }
+}
+
+#dropdown-label {vertical-align: middle;}
+
+#gender-question select, #gender-question input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#gender-description {
+    display: none;
 }
 
 #comments {
