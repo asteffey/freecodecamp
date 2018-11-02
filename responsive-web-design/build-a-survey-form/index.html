@@ -7,6 +7,7 @@
 </head>
 <body>
   <script src="../testable-projects-fcc-v1-bundle.js"></script>
+  <script src="survey-form.js"></script>
   <main>
     <h1 id="title">the<br>BeaTles<br>Survey</h1>
     <p id="description">Please take a few minutes to answer a few questions about the Beatles.</p>
@@ -35,16 +36,15 @@
                   placeholder="Enter your age"
                   type="number"><br>
         <label for="dropdown"
-                  id="dropdown-label">Sex:</label><select id="dropdown"
-                  name="sex"
+                  id="dropdown-label">Gender:</label>
+                  <div  id="gender-question">
+                  <select id="dropdown"
+                  name="gender"
                   required="">
           <option disabled
                   selected
                   value="">
-            Select your sex
-          </option>
-          <option value="other">
-            Not Specified
+            Select your gender
           </option>
           <option value="male">
             Male
@@ -52,7 +52,18 @@
           <option value="female">
             Female
           </option>
+          <option value="self-describe">
+            Prefer to self-describe
+          </option>
+          <option value="no-answer">
+            Prefer not to say
+          </option>
         </select>
+        <input id="gender-description"
+                  name="gender-description"
+                  placeholder="Please describe your gender"
+                  type="text">
+      </div>
       </div>
       </fieldset>
       <fieldset id="favorite-beatle-fieldset">
