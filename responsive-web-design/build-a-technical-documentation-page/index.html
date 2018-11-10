@@ -9,6 +9,106 @@
 
 <body>
     <script src="../testable-projects-fcc-v1-bundle.js"></script>
+    <style>
+        html,
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            font-size: 1.5em;
+            line-height: 1.5em;
+            font-weight: bold;
+            margin-block-start: 0.5em;
+            margin-block-end: 0.5em;
+        }
+
+        nav {
+            border-bottom: 2px solid #666;
+            background-color: #EEE;
+        }
+
+        nav > header {
+            font-size: 30px;
+            line-height: 30px;
+            padding: 10px 0px 10px 50px;
+            margin: 0;
+            text-align: left;
+            background-color: #FFF;
+        }
+
+        nav>ul,
+        nav>ul>li {
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
+
+        nav>ul>li>a {
+            display: block;
+            text-align: left;
+            padding: 4px 4px 4px 12px;
+            color: black;
+            border-top: 1px solid #666;
+        }
+
+        nav>ul>li>a:hover {
+            background-color: #AAA;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        main {
+            margin: 8px;
+        }
+
+        code {
+            background-color: rgba(27, 31, 35, .08);
+            font-size: .9em;
+            border-radius: 3px;
+            padding: .2em .4em;
+        }
+
+        pre code {
+            display: block;
+            border: 1px solid rgba(27, 31, 35, .1);
+            width: fit-content;
+        }
+
+        @media (min-width: 800px) {
+            body {
+                padding-left: 300px;
+            }
+
+            nav {
+                position: fixed;
+                width: 300px;
+                height: 100vh;
+                box-sizing: border-box;
+                top: 0;
+                left: 0;
+                border-right: 2px solid #666;
+                border-bottom: 0;
+            }
+
+            nav>ul {
+                height: calc(100vh - 50px);
+                overflow-y: auto;
+            }
+
+        }
+    </style>
     <nav id="navbar">
         <header>gRPC</header>
         <ul>
@@ -75,7 +175,8 @@
         <section class="main-section" id="To_start_developing_gRPC">
             <header>To start developing gRPC</header>
             <p>Contributions are welcome!</p>
-            <p>Please read <a href="https://github.com/grpc/grpc/blob/master/CONTRIBUTING.md">How to contribute</a> which will guide you through the entire
+            <p>Please read <a href="https://github.com/grpc/grpc/blob/master/CONTRIBUTING.md">How to contribute</a>
+                which will guide you through the entire
                 workflow
                 of how to build the source code, how to run the tests and how to contribute your changes to<br>
                 the gRPC codebase.<br>
@@ -105,17 +206,14 @@
                     Variables Overview</a>.<br>
                 Multiple traces can be enable at once (use comma as separator).</p>
             <pre><code># Enable debug logs for an application
-            GRPC_VERBOSITY=debug ./helloworld_application_using_grpc
-            </code></pre>
+GRPC_VERBOSITY=debug ./helloworld_application_using_grpc</code></pre>
             <pre><code># Print information about invocations of low-level C core API.
-            # Note that trace logs of log level DEBUG won't be displayed.
-            # Also note that most tracers user log level INFO, so without setting
-            # GPRC_VERBOSITY accordingly, no traces will be printed.
-            GRPC_VERBOSITY=info GRPC_TRACE=api ./helloworld_application_using_grpc
-            </code></pre>
+# Note that trace logs of log level DEBUG won't be displayed.
+# Also note that most tracers user log level INFO, so without setting
+# GPRC_VERBOSITY accordingly, no traces will be printed.
+GRPC_VERBOSITY=info GRPC_TRACE=api ./helloworld_application_using_grpc</code></pre>
             <pre><code># Print info from 3 different tracers, including tracing logs with log level DEBUG
-            GRPC_VERBOSITY=debug GRPC_TRACE=tcp,http,api ./helloworld_application_using_grpc
-            </code></pre>
+GRPC_VERBOSITY=debug GRPC_TRACE=tcp,http,api ./helloworld_application_using_grpc</code></pre>
             <p>Known limitations: <code>GPRC_TRACE=tcp</code> is currently not implemented for Windows (you won’t see
                 any tcp traces).</p>
             <p>Please note that the <code>GRPC_TRACE</code> environment variable has nothing to do with gRPC’s
@@ -269,6 +367,7 @@
                     </tr>
                 </tbody>
             </table>
+        </section>
     </main>
 </body>
 
