@@ -32,7 +32,7 @@ function convertToCurrencyAmountObject (currencyArray) {
 
 function convertToCurrencyDesignationArray (currencyObject) {
   let currencyDesignationArray = [];
-  for (currencyType of getCashTypes(currencyObject).sort(descendingOrder))
+  for (let currencyType of getCashTypes(currencyObject).sort(descendingOrder))
     currencyDesignationArray.push([CurrencyDesignations[currencyType], currencyObject[currencyType] / 100]);
   return currencyDesignationArray;
 }
