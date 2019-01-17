@@ -1,4 +1,12 @@
-const RomanNumeralDigits = ['I','V','X','L','C','D','M'];
+const RomanNumeralDigits = {
+  1000: 'M',
+  500: 'D',
+  100: 'C',
+  50: 'L',
+  10: 'X',
+  5: 'V',
+  1: 'I'
+};
 
 function convertToRoman(num) {
   if (num < 0 || 3999 < num)
@@ -9,24 +17,16 @@ function convertToRoman(num) {
   for (let i = 3; i >= 0; i--) {
     let place = Math.pow(10, i);
     let digit = Math.floor(num / place);
-
-    magicNumber = i * 2;
-
     
     if (digit == 9)
-      romanNumerals += RomanNumeralDigits[magicNumber] + RomanNumeralDigits[magicNumber+2];
+      romanNumerals += RomanNumeralDigits[place] + RomanNumeralDigits[place * 10];
+    else if (digit >= 5)
+      romanNumerals += RomanNumeralDigits[place * 5] + RomanNumeralDigits[place].repeat(digit - 5);
     else if (digit == 4)
-      romanNumerals += RomanNumeralDigits[magicNumber] + RomanNumeralDigits[magicNumber+1];
-    else {
-      if (digit >= 5) {
-        digit -= 5;
-        romanNumerals += RomanNumeralDigits[magicNumber+1];
-      }
-      while (digit > 0) {
-        romanNumerals += RomanNumeralDigits[magicNumber];
-        digit--;
-      }
-    }
+      romanNumerals += RomanNumeralDigits[place] + RomanNumeralDigits[place * 5];
+    else if (digit > 0)
+      romanNumerals += RomanNumeralDigits[place].repeat(digit);
+
     num %= place;
   }
   return romanNumerals;
