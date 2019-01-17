@@ -25,18 +25,15 @@ const CurrencyDesignations = swapKeyAndValue(CurrencyAmountsInCents);
 
 function convertToCurrencyAmountObject (currencyArray) {
   let currencyAmountObject = {};
-  currencyArray.forEach (cur => {
-    currencyAmountObject[CurrencyAmountsInCents[cur[0]]] = cur[1] * 100;
-  });
-
+  for (let currencyType of currencyArray)
+    currencyAmountObject[CurrencyAmountsInCents[currencyType[0]]] = currencyType[1] * 100;
   return currencyAmountObject;
 }
 
 function convertToCurrencyDesignationArray (currencyObject) {
   let currencyDesignationArray = [];
-  for (currencyType of getCashTypes(currencyObject).sort(descendingOrder)) {
+  for (currencyType of getCashTypes(currencyObject).sort(descendingOrder))
     currencyDesignationArray.push([CurrencyDesignations[currencyType], currencyObject[currencyType] / 100]);
-  }
   return currencyDesignationArray;
 }
 
