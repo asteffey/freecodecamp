@@ -1,0 +1,4 @@
+# use this regex with search and replace to convert freecodecamp test description to 
+
+([a-zA-Z0-9_]+\(.+\)) should return (.+)\.*\n
+['$1', $2],
