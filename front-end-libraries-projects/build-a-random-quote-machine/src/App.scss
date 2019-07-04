@@ -1,0 +1,41 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#quote-box {
+  @extend .col-sm-6;
+  @extend .card;
+}
+
+#quote-box div {
+  @extend .card-body;
+}
+
+#text {
+  @extend .blockquote;
+}
+
+#author {
+  @extend .blockquote-footer;
+  font-size: 100%;
+}
+
+#quote-box footer {
+  @extend .container;
+  @extend .card-footer;
+}
+
+#new-quote, #tweet-quote {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .col-sm-4;
+}
+
+#tweet-quote {
+  @extend .offset-sm-4;
+}
