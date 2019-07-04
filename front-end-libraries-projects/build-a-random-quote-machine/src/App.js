@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { QuoteBox } from "./QuoteBox"
+import { retrieveQuote } from "./actions/fetchQuote"
+import { connect } from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = (props) => (
+  <main>
+    <QuoteBox quote={props.quote} retrieveQuote={props.retrieveQuote} />
+  </main>
+);
 
-export default App;
+const mapStatetoProps = (state) => ({
+    quote: state.quote
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    retrieveQuote: (index) => {
+        dispatch(retrieveQuote(index));
+    }
+});
+
+export default connect(mapStatetoProps, mapDispatchToProps)(App);
