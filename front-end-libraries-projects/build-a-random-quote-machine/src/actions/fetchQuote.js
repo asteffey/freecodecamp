@@ -1,15 +1,6 @@
 export const FETCHING_QUOTE = "FETCHING_QUOTE";
 export const RECIEVE_QUOTE = "RECEIVE_QUOTE";
 export const RECEIVE_ERROR = "RECEIVE_ERROR";
-export const RETRIEVE_RANDOM_QUOTE = "RETRIEVE_RANDOM_QUOTE";
-
-export const retrieveRandomQuote = () => ({
-    type: RETRIEVE_RANDOM_QUOTE
-});
-
-export const fetchingQuote = () => ({
-    type: FETCHING_QUOTE
-});
 
 export const receiveQuote = (quote) => ({
     type: RECIEVE_QUOTE,
@@ -19,17 +10,24 @@ export const receiveQuote = (quote) => ({
     }
 });
 
-export const receiveError = () => ({
-    type: RECEIVE_ERROR
-});
-
 export const retrieveQuote = (index) => dispatch => {
-    dispatch(fetchingQuote());
-    fetch('quotes/'+index+'.json').then(response => {
-        return response.json();
-    }, err => {
-        dispatch(receiveError());
-    }).then(json => {
-        dispatch(receiveQuote(json));
-    });
+    dispatch({ type: FETCHING_QUOTE });
+
+    fetch('quotes/' + index + '.json')
+        .then(response => response.json())
+        .then(json => {
+            dispatch({
+                type: RECIEVE_QUOTE,
+                quote: {
+                    author: json.author,
+                    text: json.quote
+                }
+            });
+        })
+        .catch(() => dispatch({ type: RECEIVE_ERROR }));
 };
+
+export const retrieveRandomQuote = () => {
+    let index = Math.floor(Math.random() * (2274 + 1));
+    return retrieveQuote(index);
+}

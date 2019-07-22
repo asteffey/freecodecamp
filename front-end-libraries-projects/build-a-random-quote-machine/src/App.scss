@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap.scss';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 
 main {
   display: flex;
@@ -38,4 +39,10 @@ main {
 
 #tweet-quote {
   @extend .offset-sm-4;
+}
+
+.spinner {
+  @extend .fas;
+  @extend .fa-sync;
+  @extend .fa-spin;
 }
