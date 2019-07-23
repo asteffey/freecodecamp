@@ -1,4 +1,4 @@
-import { FETCHING_QUOTE, RECIEVE_QUOTE, RECEIVE_ERROR } from "../actions/fetchQuote"
+import { FETCHING_QUOTE, RECIEVE_QUOTE, RECEIVE_ERROR } from '../constants';
 import { combineReducers } from 'redux'
 
 const hasError = (state = false, action) => {

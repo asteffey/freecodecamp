@@ -1,4 +1,4 @@
-import { RECIEVE_QUOTE } from "../actions/fetchQuote"
+import { RECIEVE_QUOTE } from '../constants';
 
 const quote = (state = { text: "", author: "" }, action) => {
     switch (action.type) {

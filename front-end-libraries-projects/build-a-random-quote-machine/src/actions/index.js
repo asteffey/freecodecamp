@@ -1,6 +1,4 @@
-export const FETCHING_QUOTE = "FETCHING_QUOTE";
-export const RECIEVE_QUOTE = "RECEIVE_QUOTE";
-export const RECEIVE_ERROR = "RECEIVE_ERROR";
+import { FETCHING_QUOTE, RECIEVE_QUOTE, RECEIVE_ERROR } from '../constants';
 
 export const receiveQuote = (quote) => ({
     type: RECIEVE_QUOTE,
@@ -11,6 +9,7 @@ export const receiveQuote = (quote) => ({
 });
 
 export const retrieveQuote = (index) => dispatch => {
+    console.log('fetching quote ' + index);
     dispatch({ type: FETCHING_QUOTE });
 
     fetch('quotes/' + index + '.json')
@@ -26,8 +25,3 @@ export const retrieveQuote = (index) => dispatch => {
         })
         .catch(() => dispatch({ type: RECEIVE_ERROR }));
 };
-
-export const retrieveRandomQuote = () => {
-    let index = Math.floor(Math.random() * (2274 + 1));
-    return retrieveQuote(index);
-}
