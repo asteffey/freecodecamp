@@ -1,8 +1,8 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import { retrieveQuote } from '../actions';
+import { retrieveQuote } from '../../actions';
 import { connect } from 'react-redux';
-import QuoteBox from '../components/QuoteBox';
+import QuoteBox from './QuoteBox';
 
 const FetchQuoteBox = ({id, retrieveQuote}) => {
     React.useEffect(() => {

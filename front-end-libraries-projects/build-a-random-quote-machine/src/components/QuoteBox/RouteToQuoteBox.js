@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import RedirectToRandomQuote from '../containers/RedirectToRandomQuote';
-import FetchQuoteBox from '../containers/FetchQuoteBox';
+import RedirectToRandomQuote from './RedirectToRandomQuote';
+import FetchQuoteBox from './FetchQuoteBox';
 
 const RouteToQuoteBox = () => (
     <Router>
