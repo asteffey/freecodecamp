@@ -17,4 +17,8 @@ const FetchQuoteBox = ({id, retrieveQuote}) => {
 const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => bindActionCreators({ retrieveQuote }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(FetchQuoteBox);
+const ConnectedFetchQuoteBox = connect(mapStateToProps, mapDispatchToProps)(FetchQuoteBox);
+
+ export default ({ match: { params: { id } } }) => (
+    <ConnectedFetchQuoteBox id={id}/>
+);
