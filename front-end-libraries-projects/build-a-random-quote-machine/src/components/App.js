@@ -1,10 +1,10 @@
 import React from 'react';
 import '../App.scss';
-import RouteToQuoteBox from '../containers/RouteToQuoteBox';
+import QuoteBox from './QuoteBox';
 
 const App = () => (
   <main>
-    <RouteToQuoteBox/>
+    <QuoteBox/>
   </main>
 );
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NewQuoteButton from '../components/NewQuoteButton';
+import NewQuoteButton from './NewQuoteButton';
 
 const mapStateToProps = ({ status: { isLoading }, nextId }) => ({
     isLoading,

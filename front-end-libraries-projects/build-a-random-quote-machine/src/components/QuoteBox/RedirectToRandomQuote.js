@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import RedirectToQuote from '../components/RedirectToQuote';
+import RedirectToQuote from './RedirectToQuote';
 
 const mapStateToProps = ({ nextId }) => ({ quoteId: nextId });
 
