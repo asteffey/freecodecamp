@@ -7,11 +7,7 @@ const RouteToQuoteBox = () => (
     <Router>
         <Switch>
             <Route exact path="/" component={RedirectToRandomQuote} />
-            <Route path="/:id" render=
-                {({ match: { params: { id } } }) =>
-                    <FetchQuoteBox id={id} />
-                }
-            />
+            <Route path="/:id" component={FetchQuoteBox}/>
         </Switch>
     </Router>
 );
