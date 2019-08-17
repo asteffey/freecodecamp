@@ -1,17 +1,10 @@
 import React from 'react';
 import '../App.scss';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import RedirectToRandomQuote from '../containers/RedirectToRandomQuote';
-import FetchQuoteBox from '../containers/FetchQuoteBox';
+import RouteToQuoteBox from '../containers/RouteToQuoteBox';
 
 const App = () => (
   <main>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={RedirectToRandomQuote} />
-        <Route path="/:id" component={FetchQuoteBox} />
-      </Switch>
-    </Router>
+    <RouteToQuoteBox/>
   </main>
 );
 
