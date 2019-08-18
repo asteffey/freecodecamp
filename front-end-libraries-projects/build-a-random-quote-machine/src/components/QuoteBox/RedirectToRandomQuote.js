@@ -1,6 +1,14 @@
-import { connect } from 'react-redux';
-import RedirectToQuote from './RedirectToQuote';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const mapStateToProps = ({ nextId }) => ({ quoteId: nextId });
-
-export default connect(mapStateToProps)(RedirectToQuote);
+export default () => {
+    const quoteId = useSelector(state => state.nextId);
+    React.useEffect(()=>{
+        console.log(`Redirecting to ${quoteId}`);
+    });
+    
+    return (
+        <Redirect to={`/${quoteId}`} />
+    );
+};
