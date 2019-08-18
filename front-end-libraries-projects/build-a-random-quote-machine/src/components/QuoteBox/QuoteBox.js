@@ -4,7 +4,7 @@ import NewQuoteButton from './NewQuoteButton';
 import TweetButton from '../TweetButton';
 import useFetchQuote from '../../hooks/useFetchQuote';
 
-export default ({ match: { params: { id } } }) => {
+export default ({ id }) => {
     useFetchQuote(id);
 
     return (
