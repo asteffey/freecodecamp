@@ -10,9 +10,16 @@ export const receiveQuote = (quote) => ({
 
 export const retrieveQuote = (index) => dispatch => {
     console.log('fetching quote ' + index);
-    dispatch({ type: FETCHING_QUOTE });
+    
+    const controller = new AbortController();
+    const signal = controller.signal;
 
-    fetch('quotes/' + index + '.json')
+    dispatch({
+        type: FETCHING_QUOTE,
+        cancel: () => { controller.abort() }
+    });
+
+    fetch('quotes/' + index + '.json', { signal })
         .then(response => response.json())
         .then(json => {
             dispatch({
