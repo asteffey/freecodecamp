@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuoteBox matches snapshot 1`] = `
+<div>
+  <div
+    id="quote-box"
+  >
+    <div
+      id="Quote"
+    />
+    <footer>
+      <div
+        id="NewQuoteButton"
+      />
+      <div
+        id="TweetButton"
+      />
+    </footer>
+  </div>
+</div>
+`;
