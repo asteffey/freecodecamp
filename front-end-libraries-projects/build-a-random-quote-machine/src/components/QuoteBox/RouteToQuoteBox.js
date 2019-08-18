@@ -7,7 +7,7 @@ export default () => (
     <Router>
         <Switch>
             <Route exact path="/" component={RedirectToRandomQuote} />
-            <Route path="/:id" component={QuoteBox} />
+            <Route path="/:id" render={({ match: { params: { id } } }) => <QuoteBox id={id} />} />
         </Switch>
     </Router>
 );
