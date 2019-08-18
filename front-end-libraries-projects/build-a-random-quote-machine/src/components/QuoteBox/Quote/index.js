@@ -1,9 +1,16 @@
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Quote from './Quote';
+import Loading from '../../Loading';
 
-const mapStateToProps = ({ status, quote }) => ({
-    status,
-    quote
-});
+export default () => {
+    const status = useSelector(state => state.status);
+    const quote = useSelector(state => state.quote);
 
-export default connect(mapStateToProps)(Quote);
+    return (
+        <Loading {...status}>
+            <Quote {...quote} />
+        </Loading>
+    );
+
+};

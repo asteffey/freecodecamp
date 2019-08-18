@@ -1,10 +1,14 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 
-main {
+.centerContent {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+main {
+  @extend .centerContent;
   height: 100vh;
 }
 
