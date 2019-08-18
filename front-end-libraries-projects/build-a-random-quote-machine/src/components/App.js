@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.scss';
+import '../sass/App.scss';
 import QuoteBox from './QuoteBox';
 
 const App = () => (
