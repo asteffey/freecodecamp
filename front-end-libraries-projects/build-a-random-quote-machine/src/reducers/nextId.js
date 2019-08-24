@@ -1,6 +1,6 @@
-import { FETCHING_QUOTE } from '../constants';
+import { FETCHING_QUOTE, NUMBER_QUOTES } from '../constants';
 
-const getRandomQuoteId = () => Math.floor(Math.random() * (2274 + 1));
+const getRandomQuoteId = () => Math.floor(Math.random() * (NUMBER_QUOTES + 1));
 
 export default (state = getRandomQuoteId(), action) => {
     switch (action.type) {
