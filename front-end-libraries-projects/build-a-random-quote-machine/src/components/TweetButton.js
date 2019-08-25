@@ -10,7 +10,7 @@ const TweetButton = (props) => {
         attributes = {
             rel: 'noopener noreferrer',
             target: '_blank',
-            href: encodeURI(`https://twitter.com/intent/tweet?text=${tweet}`)
+            href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`
         };
     else
         attributes = {
