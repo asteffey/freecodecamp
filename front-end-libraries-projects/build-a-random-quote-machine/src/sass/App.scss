@@ -16,34 +16,33 @@ main {
   @extend .col-sm-6;
   @extend .card;
 
-}
+  div {
+    @extend .card-body;
+  }
 
-#quote-box div {
-  @extend .card-body;
-}
+  #text {
+    @extend .blockquote;
+  }
 
-#text {
-  @extend .blockquote;
-}
+  #author {
+    @extend .blockquote-footer;
+    font-size: 100%;
+  }
 
-#author {
-  @extend .blockquote-footer;
-  font-size: 100%;
-}
+  footer {
+    @extend .container;
+    @extend .card-footer;
+  }
 
-#quote-box footer {
-  @extend .container;
-  @extend .card-footer;
-}
+  a {
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .col-sm-4;
+  }
 
-#new-quote, #tweet-quote {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .col-sm-4;
-}
-
-#tweet-quote {
-  @extend .offset-sm-4;
+  #tweet-quote {
+    @extend .offset-sm-4;
+  }
 }
 
 .spinner {
