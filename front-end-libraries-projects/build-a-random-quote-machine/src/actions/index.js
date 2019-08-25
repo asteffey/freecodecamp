@@ -17,7 +17,7 @@ export const retrieveQuote = (index) => dispatch => {
         cancel: () => { controller.abort(); }
     });
 
-    fetch('quotes/' + index + '.json', { signal })
+    fetch(`${process.env.PUBLIC_URL}/quotes/` + index + '.json', { signal })
         .then(response => response.json())
         .then(json => {
             dispatch({

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const NewQuoteButton = ({ nextId }) => {
 
     return (
-        <NavLink id="new-quote" to={`${nextId}`}>New Quote</NavLink>
+        <NavLink id="new-quote" to={`/${nextId}`}>New Quote</NavLink>
     );
 };
 
