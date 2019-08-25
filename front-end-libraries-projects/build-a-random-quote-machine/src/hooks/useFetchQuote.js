@@ -6,7 +6,7 @@ export default (id) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(retrieveQuote(id))
+        dispatch(retrieveQuote(id));
     }, [dispatch, id]);
 
     const nextId = useSelector(state => state.nextId);
