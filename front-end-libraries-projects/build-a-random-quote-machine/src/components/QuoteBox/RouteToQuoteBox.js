@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import RedirectToRandomQuote from './RedirectToRandomQuote';
 import QuoteBox from './QuoteBox';
-
+//basename={'/freecodecamp/build-a-random-quote-machine'}
 const RouteToQuoteBox = () => (
     <Router>
         <Switch>
