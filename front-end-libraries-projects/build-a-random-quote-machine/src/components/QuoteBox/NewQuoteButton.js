@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NewQuoteButton = ({ nextId }) => {
 
     return (
-        <NavLink id="new-quote" to={`/${nextId}`}>New Quote</NavLink>
+        <Link id="new-quote" to={`/${nextId}`}>New Quote</Link>
     );
 };
 
