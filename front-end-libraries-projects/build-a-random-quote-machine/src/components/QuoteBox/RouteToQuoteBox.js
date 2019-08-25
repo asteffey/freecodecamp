@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import RedirectToRandomQuote from './RedirectToRandomQuote';
 import QuoteBox from './QuoteBox';
 
-export default () => (
+const RouteToQuoteBox = () => (
     <Router>
         <Switch>
-            <Route exact path="/" component={RedirectToRandomQuote} />
-            <Route path="/:id" render={({ match: { params: { id } } }) => <QuoteBox id={id} />} />
+            <Route path="/:id([0-9]+)" render={({ match: { params: { id } } }) => <QuoteBox id={parseInt(id)} />} />
+            <Route component={RedirectToRandomQuote} />
         </Switch>
     </Router>
 );
+
+export default RouteToQuoteBox;

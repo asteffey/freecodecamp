@@ -14,7 +14,7 @@ export const retrieveQuote = (index) => dispatch => {
 
     dispatch({
         type: FETCHING_QUOTE,
-        cancel: () => { controller.abort() }
+        cancel: () => { controller.abort(); }
     });
 
     fetch('quotes/' + index + '.json', { signal })

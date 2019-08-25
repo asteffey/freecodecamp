@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default ({ text, author }) => {
+const Quote = ({ text, author }) => {
     return (
         <div>
             <p id="text">{text}</p>
@@ -8,3 +9,10 @@ export default ({ text, author }) => {
         </div>
     );
 };
+
+Quote.propTypes = {
+    text: PropTypes.string,
+    author: PropTypes.string
+};
+
+export default Quote;

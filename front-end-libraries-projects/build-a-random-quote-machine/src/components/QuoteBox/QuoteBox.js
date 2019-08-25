@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Quote from './Quote';
 import NewQuoteButton from './NewQuoteButton';
 import TweetButton from '../TweetButton';
 import useFetchQuote from '../../hooks/useFetchQuote';
 import Loading from '../Loading';
 
-export default ({ id }) => {
+const QuoteBox = ({ id }) => {
     const { text, author, isLoading, hasError, nextId } = useFetchQuote(id);
     const tweet = (!isLoading && !hasError) ? `${text} - ${author}` : null;
 
@@ -21,3 +22,9 @@ export default ({ id }) => {
         </div>
     );
 };
+
+QuoteBox.propTypes = {
+    id: PropTypes.number.isRequired
+};
+
+export default QuoteBox;

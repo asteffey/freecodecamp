@@ -31,7 +31,7 @@ describe('QuoteBox App', () => {
 
     const renderQuoteBox = (store = createMockLoadedStore()) => {
         return render(<Provider store={store}><Router><RouteToQuoteBox /></Router></Provider>);
-    }
+    };
 
     const fetchMock = jest.spyOn(global, 'fetch');
     
