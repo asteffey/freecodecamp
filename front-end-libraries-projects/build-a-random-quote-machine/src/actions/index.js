@@ -9,8 +9,6 @@ export const receiveQuote = (quote) => ({
 });
 
 export const retrieveQuote = (index) => dispatch => {
-    console.log('fetching quote ' + index);
-    
     const controller = new AbortController();
     const signal = controller.signal;
 
