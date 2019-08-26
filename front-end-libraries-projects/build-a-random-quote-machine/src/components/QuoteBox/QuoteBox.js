@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Quote from './Quote';
 import NewQuoteButton from './NewQuoteButton';
@@ -9,6 +9,10 @@ import Loading from '../Loading';
 const QuoteBox = ({ id }) => {
     const { text, author, isLoading, hasError, nextId } = useFetchQuote(id);
     const tweet = (!isLoading && !hasError) ? `${text} - ${author}` : null;
+
+    useEffect(() => {
+        document.title = `Quote #${id}`;
+    }, [id]);
 
     return (
         <div id="quote-box">
