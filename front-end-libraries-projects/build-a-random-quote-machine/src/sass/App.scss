@@ -10,6 +10,7 @@
 main {
   @extend .centerContent;
   height: 100vh;
+  @extend .bg-secondary;
 }
 
 #quote-box {
