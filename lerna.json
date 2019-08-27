@@ -1,6 +1,7 @@
 {
   "npmClinet": "yarn",
   "packages": [
+    "root",
     "front-end-libraries-projects/*"
   ],
   "version": "0.0.0"
