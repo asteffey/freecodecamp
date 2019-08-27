@@ -1,0 +1,7 @@
+{
+  "npmClinet": "yarn",
+  "packages": [
+    "front-end-libraries-projects/*"
+  ],
+  "version": "0.0.0"
+}
