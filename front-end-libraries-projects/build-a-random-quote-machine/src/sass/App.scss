@@ -1,0 +1,53 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+.centerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  @extend .centerContent;
+  height: 100vh;
+  @extend .bg-secondary;
+}
+
+#quote-box {
+  @extend .col-sm-6;
+  @extend .card;
+
+  div {
+    @extend .card-body;
+  }
+
+  #text {
+    @extend .blockquote;
+  }
+
+  #author {
+    @extend .blockquote-footer;
+    font-size: 100%;
+  }
+
+  footer {
+    @extend .container;
+    @extend .card-footer;
+  }
+
+  a {
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .col-sm-4;
+  }
+
+  #tweet-quote {
+    @extend .offset-sm-4;
+  }
+}
+
+.spinner {
+  @extend .fas;
+  @extend .fa-sync;
+  @extend .fa-spin;
+}
