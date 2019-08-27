@@ -2,7 +2,8 @@
   "npmClinet": "yarn",
   "packages": [
     "root",
-    "front-end-libraries-projects/*"
+    "front-end-libraries-projects/*",
+    "responsive-web-design/build-a-personal-portfolio-webpage"
   ],
   "version": "0.0.0"
 }

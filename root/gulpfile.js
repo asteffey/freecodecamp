@@ -23,7 +23,7 @@ async function js() {
         .pipe(babel({
             presets: ['@babel/env']
         }))
-        .pipe(terser())
+       .pipe(terser())
         .pipe(gulp.dest('./dist'));
 }
 
