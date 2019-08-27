@@ -1,0 +1,26 @@
+{
+  "name": "asteffey-fcc-root",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/asteffey/freecodecamp",
+  "author": "Andrew Steffey",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "del": "^5.1.0",
+    "gh-pages": "^2.1.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-terser": "^1.2.0",
+    "gulp-uglify": "^3.0.2"
+  },
+  "scripts": {
+    "clean": "gulp clean",
+    "build": "gulp build",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -a -d dist"
+  }
+}
