@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
 const del = require('del');
 const minifyHtml = require('gulp-minify-html');
 const babel = require('gulp-babel');
@@ -44,6 +45,16 @@ async function images() {
         .pipe(gulp.dest('dist/images'));
 }
 
+async function start() {
+    browserSync.init({
+        server: {
+            baseDir: 'app'
+        }
+    });
+
+    gulp.watch('./app/**/*.+(png|jpg|jpeg|gif|svg|html|css|js)').on("change", browserSync.reload);
+}
+
 const build = gulp.series(clean, gulp.parallel(html, js, css, images));
 
 exports.clean = clean;
@@ -52,4 +63,6 @@ exports.js = js;
 exports.css = css;
 exports.images = images;
 exports.build = build;
-exports.default = build;
+
+exports.start = start;
+exports.default = start;
