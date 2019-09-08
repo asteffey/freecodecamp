@@ -49,7 +49,8 @@ async function start() {
     browserSync.init({
         server: {
             baseDir: 'app'
-        }
+        },
+        startPath: '?fcc-test=true'
     });
 
     gulp.watch('./app/**/*.+(png|jpg|jpeg|gif|svg|html|css|js)').on("change", browserSync.reload);
