@@ -3,7 +3,7 @@
   "packages": [
     "root",
     "front-end-libraries-projects/*",
-    "responsive-web-design/build-a-personal-portfolio-webpage"
+    "responsive-web-design/*"
   ],
   "version": "0.0.0"
 }
