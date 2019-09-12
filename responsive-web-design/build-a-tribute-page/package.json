@@ -11,8 +11,8 @@
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-minify-html": "^1.0.6"
+    "gulp-clean-css": "^4.2.0",
+    "gulp-htmlmin": "^5.0.1"
   },
   "scripts": {
     "start": "gulp start",

@@ -1,8 +1,8 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const del = require('del');
-const minifyHtml = require('gulp-minify-html');
-const minifyCss = require('gulp-minify-css');
+const htmlmin = require('gulp-htmlmin');
+const cleanCSS = require('gulp-clean-css');
 
 
 async function clean() {
@@ -12,14 +12,14 @@ async function clean() {
 async function html() {
     return gulp
         .src('./app/**/*.html')
-        .pipe(minifyHtml())
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('dist'));
 }
 
 async function css() {
     return gulp
         .src('app/**/*.css')
-        .pipe(minifyCss())
+        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('dist'));
 }
 
