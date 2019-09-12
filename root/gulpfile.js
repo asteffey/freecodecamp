@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const del = require('del');
-const minifyHtml = require('gulp-minify-html');
+const htmlmin = require('gulp-htmlmin');
 const babel = require('gulp-babel');
 const terser = require('gulp-terser');
 
@@ -13,7 +13,7 @@ async function clean() {
 async function html() {
     return gulp
         .src('./app/**/*.html')
-        .pipe(minifyHtml())
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('./dist'));
 }
 
