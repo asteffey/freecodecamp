@@ -5,8 +5,7 @@ const htmlmin = require('gulp-htmlmin');
 const babel = require('gulp-babel');
 const terser = require('gulp-terser');
 const cleanCSS = require('gulp-clean-css');
-var imagemin = require('gulp-imagemin');
-var cache = require('gulp-cache');
+
 
 async function clean() {
     return del.sync('dist');
@@ -36,13 +35,10 @@ async function css() {
         .pipe(gulp.dest('dist'));
 }
 
-async function images() {
+async function fonts() {
     return gulp
-        .src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
-        .pipe(cache(imagemin({
-            interlaced: true
-          })))
-        .pipe(gulp.dest('dist/images'));
+        .src('app/**/*.ttf')
+        .pipe(gulp.dest('dist'));
 }
 
 async function start() {
@@ -53,16 +49,16 @@ async function start() {
         startPath: '?fcc-test=true'
     });
 
-    gulp.watch('./app/**/*.+(png|jpg|jpeg|gif|svg|html|css|js)').on("change", browserSync.reload);
+    gulp.watch('./app/**/*.+(ttf|html|css|js)').on("change", browserSync.reload);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, js, css, images));
+const build = gulp.series(clean, gulp.parallel(html, js, css, fonts));
 
 exports.clean = clean;
 exports.html = html;
 exports.js = js;
 exports.css = css;
-exports.images = images;
+exports.fonts = fonts;
 exports.build = build;
 
 exports.start = start;

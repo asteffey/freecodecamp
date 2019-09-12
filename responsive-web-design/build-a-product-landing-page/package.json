@@ -1,7 +1,7 @@
 {
-  "name": "build-a-personal-portfolio-webpage",
+  "name": "build-a-product-landing-page",
   "version": "1.0.0",
-  "repository": "https://github.com/asteffey/freecodecamp/tree/master/responsive-web-design/build-a-personal-portfolio-webpage",
+  "repository": "https://github.com/asteffey/freecodecamp/tree/master/responsive-web-design/build-a-product-landing-page",
   "author": "Andrew Steffey",
   "license": "MIT",
   "private": true,
@@ -23,6 +23,6 @@
     "clean": "gulp clean",
     "build": "gulp build",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -a -d dist -e build-a-personal-portfolio-webpage"
+    "deploy": "gh-pages -a -d dist -e build-a-product-landing-page"
   }
 }

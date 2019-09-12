@@ -8,6 +8,6 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
-    "deploy": "lerna run deploy"
+    "deploy": "lerna run deploy --concurrency 1"
   }
 }
