@@ -14,36 +14,40 @@ main {
 }
 
 #quote-box {
-  @extend .col-sm-6;
   @extend .card;
+  margin: 10px;
+  max-width: 900px;
 
   div {
     @extend .card-body;
-  }
-
-  #text {
-    @extend .blockquote;
-  }
-
-  #author {
-    @extend .blockquote-footer;
-    font-size: 100%;
+    
+    #text {
+      @extend .blockquote;
+    }
+  
+    #author {
+      @extend .blockquote-footer;
+      font-size: 100%;
+    }
   }
 
   footer {
-    @extend .container;
     @extend .card-footer;
+    // @extend .container;
+    @extend .d-flex;
+    @extend .justify-content-between;
+    // d-flex justify-content-between
+
+    a {
+      @extend .btn;
+      @extend .btn-primary;
+      @extend .col-5;
+      width: 30%;
+      max-width: 200px;
+      @extend .centerContent;
+    }
   }
 
-  a {
-    @extend .btn;
-    @extend .btn-primary;
-    @extend .col-sm-4;
-  }
-
-  #tweet-quote {
-    @extend .offset-sm-4;
-  }
 }
 
 .spinner {
