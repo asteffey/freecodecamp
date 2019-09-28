@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "gh-pages": "^2.1.1",
+    "react-loading-skeleton": "^1.1.2",
     "redux-mock-store": "^1.5.3"
   }
 }

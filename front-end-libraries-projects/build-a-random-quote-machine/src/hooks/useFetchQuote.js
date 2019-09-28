@@ -9,9 +9,7 @@ export default (id) => {
         dispatch(retrieveQuote(id));
     }, [dispatch, id]);
 
-    const nextId = useSelector(state => state.nextId);
-    const { isLoading, hasError } = useSelector(state => state.status);
-    const { text, author } = useSelector(state => state.quote);
+    const { nextId, hasError, quote: { text, author } } = useSelector(state => state);
 
-    return { text, author, isLoading, hasError, nextId };
+    return { text, author, hasError, nextId };
 };

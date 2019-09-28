@@ -4,11 +4,11 @@ import Quote from './Quote';
 import NewQuoteButton from './NewQuoteButton';
 import TweetButton from '../TweetButton';
 import useFetchQuote from '../../hooks/useFetchQuote';
-import Loading from '../Loading';
+import Error from '../Error';
 
 const QuoteBox = ({ id }) => {
-    const { text, author, isLoading, hasError, nextId } = useFetchQuote(id);
-    const tweet = (!isLoading && !hasError) ? `${text} - ${author}` : null;
+    const { text, author, hasError, nextId } = useFetchQuote(id);
+    const tweet = (text && author) ? `${text} - ${author}` : null;
 
     useEffect(() => {
         document.title = `Quote #${id}`;
@@ -16,9 +16,8 @@ const QuoteBox = ({ id }) => {
 
     return (
         <div id="quote-box">
-            <Loading isLoading={isLoading} hasError={hasError}>
-                <Quote text={text} author={author} />
-            </Loading>
+            {!hasError && <Quote text={text} author={author} />}
+            {hasError && <Error/> }           
             <footer>
                 <NewQuoteButton nextId={nextId} />
                 <TweetButton id="tweet-quote" tweet={tweet} label='Tweet Quote' />
