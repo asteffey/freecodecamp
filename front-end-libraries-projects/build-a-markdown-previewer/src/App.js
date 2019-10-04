@@ -5,15 +5,15 @@ import './App.css';
 
 
 function App() {
-  useFccTest({
-    fccTest: FccTests.markdown_previewer
-  });
+    useFccTest({
+        fccTest: FccTests.markdown_previewer
+    });
 
-  return (
-    <main>
-      <MarkdownEditor />
-    </main>
-  );
+    return (
+        <main>
+            <MarkdownEditor />
+        </main>
+    );
 }
 
 export default App;

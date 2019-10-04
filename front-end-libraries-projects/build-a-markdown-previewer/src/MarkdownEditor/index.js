@@ -4,21 +4,21 @@ import { initialMarkdown } from './constants';
 
 const MarkdownEditor = () => {
 
-  const [markdown, setMarkdown] = useState(initialMarkdown);
+    const [markdown, setMarkdown] = useState(initialMarkdown);
 
-  return (
-      <div id="markdown-editor">
-        <textarea id="editor" value={markdown} onChange={e => setMarkdown(e.target.value)} autoFocus />
-        <div id="preview">
-          <Markdown
-            source={markdown}
-            linkTarget='_blank'
-            escapeHtml={false}
-            plugins={[require('remark-breaks')]}
-          />
+    return (
+        <div id="markdown-editor">
+            <textarea id="editor" value={markdown} onChange={e => setMarkdown(e.target.value)} autoFocus />
+            <div id="preview">
+                <Markdown
+                    source={markdown}
+                    linkTarget='_blank'
+                    escapeHtml={false}
+                    plugins={[require('remark-breaks')]}
+                />
+            </div>
         </div>
-      </div>
-  );
-}
+    );
+};
 
 export default MarkdownEditor;
