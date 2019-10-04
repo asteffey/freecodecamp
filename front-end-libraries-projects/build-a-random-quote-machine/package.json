@@ -4,6 +4,7 @@
   "homepage": "https://asteffey.github.io/freecodecamp/build-a-random-quote-machine",
   "private": true,
   "dependencies": {
+    "@asteffey/react-fcc-test": "^1.0.6",
     "@fortawesome/fontawesome-free": "^5.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-regular-svg-icons": "^5.9.0",
