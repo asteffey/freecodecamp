@@ -4,7 +4,8 @@ import MarkdownEditor from './components/MarkdownEditor';
 
 function App() {
     useFccTest({
-        fccTest: FccTests.markdown_previewer
+        fccTest: FccTests.markdown_previewer,
+        queryParam: 'fcc-test'
     });
 
     return (
