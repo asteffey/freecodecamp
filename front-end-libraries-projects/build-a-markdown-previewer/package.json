@@ -1,6 +1,7 @@
 {
   "name": "build-a-markdown-previewer",
   "version": "0.1.0",
+  "homepage": "https://asteffey.github.io/freecodecamp/build-a-markdown-previewer",
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.6",
@@ -18,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -a -d build -e ./build-a-markdown-previewer"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
