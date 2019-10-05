@@ -1,8 +1,6 @@
 import React from 'react';
 import { useFccTest, FccTests } from '@asteffey/react-fcc-test';
-import MarkdownEditor from './MarkdownEditor';
-import './App.css';
-
+import MarkdownEditor from './components/MarkdownEditor';
 
 function App() {
     useFccTest({
