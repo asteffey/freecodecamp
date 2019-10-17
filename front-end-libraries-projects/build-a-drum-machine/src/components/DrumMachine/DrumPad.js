@@ -1,5 +1,6 @@
 import React from 'react';
 import useKey from 'use-key-hook';
+import { Button } from 'rebass';
 import { Drums } from '../../constants';
 import PropTypes from 'prop-types';
 
@@ -16,12 +17,15 @@ const DrumPad = ({ drumKey, updateDescription }) => {
     };
 
     useKey(hit, { detectKeys: [lowerKey, upperKey] });
+
+    const maxSize = '100px';
+    const size = '25vmin';
     
     return (
-        <button id={id} className='drum-pad' onClick={hit}>
+        <Button variant="contained" id={id} className='drum-pad' width={size} height={size} maxWidth={maxSize} maxHeight={maxSize} onClick={hit}>
             <audio id={upperKey} src={url} className='clip' ref={audio}/>
             {upperKey}
-        </button>
+        </Button>
     );
 };
 

@@ -5,10 +5,16 @@
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.6",
+    "@rebass/layout": "^4.0.6",
+    "@rebass/preset": "^4.0.5",
+    "emotion-theming": "^10.0.19",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-nbsp": "^1.2.1",
     "react-scripts": "3.2.0",
+    "rebass": "^4.0.6",
+    "styled-components": "^4.4.0",
     "use-key-hook": "^1.5.0"
   },
   "scripts": {
@@ -17,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -a -d build -e ./build-a-markdown-previewer"
+    "deploy": "gh-pages -a -d build -e ./build-a-drum-machine"
   },
   "eslintConfig": {
     "extends": "react-app"
