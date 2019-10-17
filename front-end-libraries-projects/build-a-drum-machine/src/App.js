@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
 import DrumMachine from './components/DrumMachine';
 import { useFccTest, FccTests } from '@asteffey/react-fcc-test';
+import ThemeProvider from './components/ThemeProvider';
 
 function App() {
     useFccTest({ 
@@ -10,7 +10,9 @@ function App() {
     });
 
     return (
-        <DrumMachine/>
+        <ThemeProvider>
+            <DrumMachine/>
+        </ThemeProvider>
     );
 }
 
