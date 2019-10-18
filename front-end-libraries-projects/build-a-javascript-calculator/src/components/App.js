@@ -1,6 +1,7 @@
 import React from 'react';
 import Calculator from './Calculator';
 import { useFccTest, FccTests } from '@asteffey/react-fcc-test';
+import ThemeProvider from './ThemeProvider';
 
 function App() {
     useFccTest({
@@ -9,9 +10,11 @@ function App() {
     });
 
     return (
-        <main>
-            <Calculator/>
-        </main>
+        <ThemeProvider>
+            <main>
+                <Calculator/>
+            </main>
+        </ThemeProvider>
     );
 }
 
