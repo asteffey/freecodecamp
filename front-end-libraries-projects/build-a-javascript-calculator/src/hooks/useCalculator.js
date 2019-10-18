@@ -5,7 +5,7 @@ const useCalculator = () => {
     const [formula, dispatch] = useReducer(calculator, initial);
 
     const press = useCallback(
-        (command) => dispatch({type: command}), 
+        (key) => dispatch({key}), 
         [dispatch]
     );
 

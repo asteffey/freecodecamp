@@ -2,16 +2,15 @@ import React from 'react';
 import {Button} from 'rebass';
 import PropTypes from 'prop-types';
 
-const CalculatorButton = ({command, id, label, keyBinding, press}) => {
+const CalculatorButton = ({id, label: key, keyBinding, press}) => {
     return (
-        <Button id={id} variant='primary' onClick={() => press(command)}>
-            {label}
+        <Button id={id} variant='primary' onClick={() => press(key)}>
+            {key}
         </Button>
     );
 };
 
 CalculatorButton.propTypes = {
-    command: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     keyBinding: PropTypes.oneOfType([
