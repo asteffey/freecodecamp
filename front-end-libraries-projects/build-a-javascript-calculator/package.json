@@ -5,14 +5,17 @@
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.6",
+    "@kennethormandy/react-fittext": "^0.6.0",
     "@rebass/layout": "^4.0.6",
     "@rebass/preset": "^4.0.5",
     "emotion-theming": "^10.0.19",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-fittext": "^1.0.0",
     "react-scripts": "3.2.0",
-    "rebass": "^4.0.6"
+    "rebass": "^4.0.6",
+    "styled-components": "^4.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,26 +1,25 @@
 import React from 'react';
-import buttons from '../../constants/buttons';
-import { Box, Text } from 'rebass';
-import { Tiles } from '@rebass/layout';
-import CalculatorButton from './CalculatorButton';
 import useCalculator from '../../hooks/useCalculator';
+import buttons from '../../constants/buttons';
+import Frame from './Frame.style';
+import DigitalDisplay from './DigitalDisplay.style';
+import Buttons from './Buttons.style';
+import Button from './CalculatorButton';
+
+import './calculator.css';
 
 const Calculator = () => {
     const {displayCurrent, displayFormula, press} = useCalculator();
     return (
-        <Box bg='gray'>
-            <Box>
-                <Text textAlign='right'>{displayFormula}</Text>
-            </Box>
-            <Box id='display'>
-                <Text textAlign='right'>{displayCurrent}</Text>
-            </Box>
-            <Tiles columns={4}>
+        <Frame>
+            <DigitalDisplay size='small'>{displayFormula}</DigitalDisplay>
+            <DigitalDisplay size='big' id='display'>{displayCurrent}</DigitalDisplay>
+            <Buttons>
                 {buttons.map((button, index) =>  
-                    <CalculatorButton key={index} {...button} press={press} />
+                    <Button key={index} {...button} press={press} sx={{gridArea: button.id}} />
                 )}
-            </Tiles>
-        </Box>
+            </Buttons>
+        </Frame>
     );
 };
 
