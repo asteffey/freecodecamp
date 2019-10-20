@@ -1,7 +1,7 @@
 import React from 'react';
 import Calculator from './Calculator';
 import { useFccTest, FccTests } from '@asteffey/react-fcc-test';
-import ThemeProvider from './ThemeProvider';
+import { Flex } from 'rebass';
 
 function App() {
     useFccTest({
@@ -10,11 +10,9 @@ function App() {
     });
 
     return (
-        <ThemeProvider>
-            <main>
-                <Calculator/>
-            </main>
-        </ThemeProvider>
+        <Flex alignItems='center' justifyContent='center' height='100vh' bg='#d2d3f7'>
+            <Calculator/>
+        </Flex>
     );
 }
 
