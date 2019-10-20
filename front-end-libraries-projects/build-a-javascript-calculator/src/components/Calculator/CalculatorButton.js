@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {Button} from 'rebass';
 import PropTypes from 'prop-types';
+import useKey from '../../hooks/useKey';
 
 const CalculatorButton = ({id, label: key, keyBinding, press, ...props}) => {
+    const onClick = useCallback(() => press(key), [key]);
+
+    useKey(onClick, keyBinding);
+
     return (
-        <Button id={id} bg='#163e7d' onClick={() => press(key)} m={1} {...props}>
+        <Button id={id} bg='#163e7d' onClick={onClick} m={1} {...props}>
             {key}
         </Button>
     );

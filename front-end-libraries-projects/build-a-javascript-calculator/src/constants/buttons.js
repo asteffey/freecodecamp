@@ -94,7 +94,7 @@ const buttons = [
     {
         id: 'equals',
         label: '=',
-        keyBinding: ['=', String.fromCharCode(13)]
+        keyBinding: ['=', 'Enter']
     },
     {
         id: 'divide',
