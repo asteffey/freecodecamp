@@ -6,7 +6,7 @@ import { Flex } from 'rebass';
 function App() {
     useFccTest({
         fccTest: FccTests.javascript_calculator,
-        // queryParam: 'fcc-test'
+        queryParam: 'fcc-test'
     });
 
     return (
