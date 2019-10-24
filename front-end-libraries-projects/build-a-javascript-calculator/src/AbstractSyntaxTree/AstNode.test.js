@@ -12,7 +12,7 @@ const createNodes = () => ({
 
 const createNode = value => {
     return new AstNode(new Token(value));
-}
+};
 
 describe('AstNode', () => {
 
