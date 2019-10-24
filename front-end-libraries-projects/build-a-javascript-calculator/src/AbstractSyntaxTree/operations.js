@@ -8,32 +8,32 @@ const Operations = {
 export default Operations;
 
 export const operationList = Object.values(Operations);
+export const isOperation = str => operationList.includes(str);
 
-
-export const OperatorConfig = {
-    ADD: {
+export const OperationConfig = {
+    [Operations.ADD]: {
         precedence: 1,
-        arguments: 2,
+        argCount: 2,
         func: (x,y) => x+y
     },
-    SUBTRACT: {
+    [Operations.SUBTRACT]: {
         precedence: 1,
-        arguments: 2,
+        argCount: 2,
         func: (x,y) => x-y
     },
-    MULTIPLY: {
-        precedence: 1,
-        arguments: 2,
+    [Operations.MULTIPLY]: {
+        precedence: 2,
+        argCount: 2,
         func: (x,y) => x*y
     },
-    DIVIDE: {
-        precedence: 1,
-        arguments: 2,
+    [Operations.DIVIDE]: {
+        precedence: 2,
+        argCount: 2,
         func: (x,y) => x/y
     },
-    EXPONENT: {
+    [Operations.EXPONENT]: {
         precedence: 3,
-        arguments: 2,
+        argCount: 2,
         func: (x,y) => x**y
     }
 };

@@ -1,14 +1,11 @@
-import Operations, { operationList } from '../Calculator/operations';
+import { Operations, Token, Types, buildAst } from '../AbstractSyntaxTree';
 
-export const initial = ['0'];
+export const initial = [new Token('0')];
 
 const solve = formula => {
-    const divide = new RegExp(Operations.DIVIDE, 'g');
-    const mult = new RegExp(Operations.MULTIPLY, 'g');
-
-    const evalExpression = formula.join('').replace(/\^/g, '**').replace(divide, '/').replace(mult, '*');
-    
-    return eval(evalExpression);
+    const ast = buildAst(formula);
+    const result = ast.solve();
+    return new Token(result);
 };
 
 const removeLeadingZero = (number) => {
@@ -23,111 +20,115 @@ const removeLeadingZero = (number) => {
     }
 };
 
-const isNumber = str => {
-    if (str.length === 1 && '0123456789'.includes(str)) {
-        return true;
-    } else {
-        return !isNaN(parseFloat(str));
-    }
-};
+const isSolved = formula => formula.length > 2 && formula[formula.length-2].value === '=';
 
-const isSolved = formula => formula[formula.length-2] === '=';
+const hasOpenParenthesis = formula => formula.reduce(reduceOpenParenthesis, 0) > 0;
 
 const reduceOpenParenthesis = (open, token) => {
-    if (token === '(')
+    if (token.isLeftParenthesis())
         return open + 1;
-    else if (token === ')')
+    else if (token.isRightParenthesis())
         return open - 1;
     else
         return open;
 };
 
 const calculator = (formula = initial, { key }) => {
+    const token = new Token(key);
+
     const last = formula[formula.length - 1];
     const secondLast = formula[formula.length - 2];
 
     if (isSolved(formula)) {
-        if (operationList.includes(key)) {
+        if (token.isOperation()) {
             return calculator([last], { key });
         } else {
             return calculator(initial, { key });
         }
     }
-
-    const appendToLast = (part = key) => [...formula.slice(0,-1), removeLeadingZero(last + part)];
-    const addItem = (item = key) => [...formula, item];
-    const replaceLast = (item = key) => [...formula.slice(0,-1), item];
-    const replaceLastTwo = (item = key) => [...formula.slice(0,-2), item];
+    
+    const appendToLast = (part = token.value) => [...formula.slice(0,-1), new Token(removeLeadingZero(last.value + part))];
+    const addItem = (item = token) => [...formula, item instanceof Token ? item : new Token(item)];
+    const insertBeforeLast = (item = token) => [...formula.slice(0,-1), item, last];
+    const replaceLast = (item = token) => [...formula.slice(0,-1), item];
+    const replaceLastTwo = (item = token) => [...formula.slice(0,-2), item];
     const removeLast = () => formula.slice(0,-1);
     const noChange = () => formula;
     
-    if (key === 'C') {
+       
+    switch(token.value) {
+    case 'C':
         return initial;
-    } else if (key === '=') {
+    case '=':
         try {
-            return [...formula, '=', solve(formula)];
+            return [...formula, token, solve(formula)];
         }
         catch (err) {
             return noChange();
         }
-    } else if (isNumber(last) || last === ')') {
-        if (isNumber(key)) {
-            return appendToLast();
-        } else if (key === '.') {
-            if (last.includes('.')) {
+    case '.':
+        if (last.isNumber()) {
+            if (last.value.includes('.')) {
                 return noChange();
             } else {
                 return appendToLast();
             }
-        } else if (operationList.includes(key)) {
+        } else if (last.isLeftParenthesis() || last.isOperation()) {
+            return addItem('0.');
+        } else if (last.value === Operations.SUBTRACT 
+            && (secondLast.isOperation() || secondLast.isLeftParenthesis())) {
+            return appendToLast('0.');
+        }
+        break;
+    case '-':
+        if (last.value === Operations.SUBTRACT 
+            && (secondLast.isOperation() || secondLast.isRightParenthesis())) {
+            return removeLast();
+        } else if (last.isLeftParenthesis() || last.isOperation() || last.isNumber() || last.isRightParenthesis()) {
             return addItem();
-        } else if (key === ')') {
-            const openParenthesis = formula.reduce(reduceOpenParenthesis, 0);
-            if (openParenthesis > 0) {
+        }
+        break;
+    default:
+        switch(token.type) {
+        case Types.NUMBER:
+            if (last.isNumber()) {
+                return appendToLast();
+            } else if (last.value === Operations.SUBTRACT 
+                && (secondLast.isOperation() || secondLast.isLeftParenthesis())) {
+                return appendToLast();
+            } else if (last.isLeftParenthesis() || last.isOperation()) {
                 return addItem();
             }
+            break;
+        case Types.LEFT_PARENTHESIS:
+            if (last.isLeftParenthesis() || last.isOperation()) {
+                return addItem();
+            } else if (last.isNumber()) {
+                return insertBeforeLast();
+            }
+            break;
+        case Types.RIGHT_PARENTHESIS:
+            if ((last.isNumber() || last.isRightParenthesis())
+                && hasOpenParenthesis(formula)) {
+                return addItem();
+            }
+            break;
+        case Types.OPERATION:
+            if (last.isNumber() || last.isRightParenthesis()) {
+                return addItem();
+            } else if (last.value === Operations.SUBTRACT && secondLast.isOperation()) {
+                return replaceLastTwo();
+            } else if (last.value === Operations.SUBTRACT && secondLast.isLeftParenthesis()) {
+                return noChange();
+            } else if (last.isOperation()) {
+                return replaceLast();
+            }
+            break;
+        default:
         }
-    } else if (last === '-' && operationList.includes(secondLast)) {
-        if (isNumber(key)) {
-            return appendToLast();
-        } else if (key === '.') {
-            return appendToLast('0.');
-        } else if (key === '-') {
-            return removeLast();
-        } else if (operationList.includes(key)) {
-            return replaceLastTwo();
-        }
-    } else if (secondLast === '(' && last === '-') {
-        if (isNumber(key)) {
-            return appendToLast();
-        } else if (key === '.') {
-            return appendToLast('0.');
-        } else if (key === '-') {
-            return removeLast();
-        }
-    } else if (last === '(') {
-        if (isNumber(key)) {
-            return addItem();
-        } else if (key === '.') {
-            return addItem('0.');
-        } else if (key === '-') {
-            return addItem();
-        } else if (key === '(') {
-            return addItem();
-        }
-    } else { // if (operationList.includes(current))
-        if (isNumber(key)) {
-            return addItem();
-        } else if (key === '.') {
-            return addItem('0.');
-        } else if (key === '-') {
-            return addItem();
-        } else if (operationList.includes(key)) {
-            return replaceLast();
-        } else if (key === '(') {
-            return addItem();
-        }
-    } 
+    }
+
+    
 
     return noChange();
 
