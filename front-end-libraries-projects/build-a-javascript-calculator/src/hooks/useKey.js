@@ -12,7 +12,7 @@ const useKey = (handler, keys) => {
                 handler(key);
             }
         },
-        [keys]);
+        [handler, keys]);
 
     useEffect(() => {
         if (!canUseDOM) {
