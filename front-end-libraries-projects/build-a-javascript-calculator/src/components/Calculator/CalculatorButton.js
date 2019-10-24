@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import useKey from '../../hooks/useKey';
 
 const CalculatorButton = ({id, label: key, keyBinding, press, ...props}) => {
-    const onClick = useCallback(() => press(key), [key]);
+    const onClick = useCallback(() => press(key), [press, key]);
 
     useKey(onClick, keyBinding);
 
