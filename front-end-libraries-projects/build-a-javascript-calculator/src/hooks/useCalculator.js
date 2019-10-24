@@ -10,8 +10,8 @@ const useCalculator = () => {
     );
 
     return {
-        displayCurrent: formula.slice(-1), 
-        displayFormula: formula.join(''), 
+        displayCurrent: formula[formula.length-1].value, 
+        displayFormula: formula.map(token => token.value).join(''), 
         press
     };
 };

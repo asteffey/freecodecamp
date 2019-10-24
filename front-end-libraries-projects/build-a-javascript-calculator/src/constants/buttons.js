@@ -1,4 +1,4 @@
-import Operations from '../Calculator/operations';
+import { Operations } from '../AbstractSyntaxTree';
 
 const buttons = [
     {
