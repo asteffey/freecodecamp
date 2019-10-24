@@ -1,4 +1,3 @@
-import Token from './Token';
 import Types from './Types';
 import AstNode from './AstNode';
 
