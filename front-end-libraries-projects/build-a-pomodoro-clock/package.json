@@ -1,0 +1,43 @@
+{
+  "name": "build-a-pomodoro-clock",
+  "version": "0.1.0",
+  "homepage": "https://asteffey.github.io/freecodecamp/build-a-pomodoro-clock",
+  "private": true,
+  "dependencies": {
+    "@asteffey/react-fcc-test": "^1.0.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.2.0",
+    "rebass": "^4.0.6",
+    "styled-components": "^4.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -a -d build -e ./build-a-pomodoro-clock"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "eslint-plugin-jest": "^22.20.0",
+    "gh-pages": "^2.1.1"
+  }
+}
