@@ -2,6 +2,7 @@ import React from 'react';
 import { useFccTest, FccTests } from '@asteffey/react-fcc-test';
 import CenterOnScreen from '../elements/CenterOnScreen';
 import ThemeProvider from './ThemeProvider';
+import Pomodoro from './Pomodoro';
 
 function App() {
     useFccTest({
@@ -12,7 +13,7 @@ function App() {
     return (
         <ThemeProvider>
             <CenterOnScreen>
-                Foo
+                <Pomodoro />
             </CenterOnScreen>
         </ThemeProvider>
     );
