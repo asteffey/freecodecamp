@@ -1,92 +1,109 @@
 import { useState, useCallback, useEffect } from 'react';
-import useCounter from './useCounter';
 import useTimer from './useTimer';
 
 const Status = {
-    Session: 'Session',
-    Break: 'Break'
+    session: 'Session',
+    break: 'Break'
 };
 
 function pad(num) {
     return String(num).padStart(2, '0');
 }
 
-const defaultSettings = { defaultBreak: 5, defaultSession: 25, maxBreak: 60, maxSession: 60 };
+const defaultSettings = { 
+    session: {
+        min: 1,
+        default: 25,
+        max: 60
+    },
+    break: {
+        min: 1,
+        default: 5,
+        max: 60
+    }
+};
 
 const usePomodoro = (doAlarm, settings = defaultSettings) => {
-    const [breakLength, incrementBreak, decrementBreak, setBreak] = useCounter(settings.defaultBreak, settings.maxBreak);
-    const [sessionLength, incrementSession, decrementSession, setSession] = useCounter(settings.defaultSession, settings.maxSession);
-       
-    const [status, setStatus] = useState(Status.Session);
+
+    const [breakLength, setBreakLength] = useState(settings.break.default);
+    const [sessionLength, setSessionLength] = useState(settings.session.default);
+    const [status, setStatus] = useState(Status.session);
+   
     const toggleStatus = useCallback(
-        () => setStatus(prev => prev === Status.Session ? Status.Break : Status.Session),
+        () => {
+            setStatus(prev => {
+                const res = prev === Status.session ? Status.break : Status.session;
+                return res;
+            });
+        },
         [setStatus]
     );
 
-    const { toggle, start, reset: resetTimer, incrementDuration, decrementDuration, timer, minutes, seconds } = useTimer(sessionLength * 60);
+    const { toggle, restart, pause, reset: resetTimer, timeLeft, setTimerDuration, minutes, seconds } = useTimer(sessionLength * 60);
+
+    const setLength = useCallback((type) => (value) => {
+        const setCurrent = type === 'break' ? setBreakLength : setSessionLength;
+        const { min, max } = settings[type];
+        const isOnType = Status[type] === status;
+
+        setCurrent(oldValue => {
+            const newValue = typeof value === 'number' ? value : value(oldValue);
+
+            if (min <= newValue && newValue <= max) {
+                if (isOnType) {
+                    setTimerDuration(newValue * 60);
+                }
+                return newValue;
+            } else {
+                return oldValue;
+            }
+        });
+    }, [status, settings, setTimerDuration]);
 
     const reset = useCallback(() => {
-        setBreak(settings.defaultBreak);
-        setSession(settings.defaultSession);
-        resetTimer(settings.defaultSession * 60);
-        setStatus(Status.Session);
-    }, [settings, setBreak, setSession, resetTimer]);
+        setBreakLength(settings.break.default);
+        setSessionLength(settings.session.default);
+        resetTimer(settings.session.default * 60);
+        setStatus(Status.session);
+    }, [settings, resetTimer]);
 
-    const [foo, setFoo] = useState(true);
-    
+    const [shouldExecute, setShouldExecute] = useState(true);
     useEffect(() => {
-        if (timer === 0 && foo) {
-            setFoo(false);
-            console.log('timer is zero!!!!!!!!!');
-            doAlarm();
-            setTimeout(() => {                
-                toggleStatus();
-
-                if (status === Status.Session)
-                    start(breakLength * 60);
-                else
-                    start(sessionLength * 60);
-                
-                setFoo(true);
-            }, 1000);
+        if (timeLeft > 0 && !shouldExecute) {
+            setShouldExecute(true);
         }
-    }, [timer, doAlarm, toggleStatus, resetTimer, sessionLength, breakLength, foo, start, status]);
+        else if (timeLeft === 0 && shouldExecute) {
+            setShouldExecute(false);
+            pause();
+            doAlarm().then(() => {
+                if (status === Status.session)
+                    restart(breakLength * 60);
+                else
+                    restart(sessionLength * 60);
 
-    const timeLeft = `${pad(minutes)}:${pad(seconds)}`;
+                toggleStatus();
+            });
+        }
+    }, [timeLeft, doAlarm, toggleStatus, resetTimer, sessionLength, breakLength, shouldExecute, restart, pause, status]);
 
+    const displayTime = `${pad(minutes)}:${pad(seconds)}`;
     
     return {
-        breakLength,
-        incrementBreak: () => {
-            if (status === Status.Break && sessionLength > 1) {
-                incrementDuration(60);
-            }
-            incrementBreak();
+        breakLength: {
+            ...settings.break,
+            current: breakLength,
+            set: setLength('break')
         },
-        decrementBreak: () => {
-            if (status === Status.Break && sessionLength > 1) {
-                decrementDuration(60);
-            }
-            decrementBreak();
-        },
-        sessionLength,
-        incrementSession: () => {
-            if (status === Status.Session && sessionLength > 1) {
-                incrementDuration(60);
-            }
-            incrementSession();
-        },
-        decrementSession: () => {
-            if (status === Status.Session && sessionLength > 1) {
-                decrementDuration(60);
-            }
-            decrementSession();
+        sessionLength: {
+            ...settings.session,
+            current: sessionLength,
+            set: setLength('session')
         },
         status,
-        timeLeft,
+        displayTime,
         toggle,
         reset
-    };    
+    };
 };
 
 export default usePomodoro;

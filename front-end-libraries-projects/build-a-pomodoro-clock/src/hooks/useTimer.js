@@ -1,4 +1,33 @@
-import { useState, useCallback, useRef } from 'react';
+import { useCallback, useRef, useReducer } from 'react';
+
+const actions = {
+    INCREMENT: 'INCREMENT',
+    RESET: 'RESET',
+    SET_DURATION: 'SET_DURATION',
+};
+
+export const reducer = (state, {type, newDuration}) => {
+    const {timer, duration} = state;
+    switch (type) {
+    case actions.INCREMENT:
+        return {
+            timer: Math.min(timer + 1, duration), 
+            duration
+        };
+    case actions.RESET:
+        return {
+            timer: 0, 
+            duration: typeof newDuration === 'number' ? newDuration : duration
+        };
+    case actions.SET_DURATION:
+        return {
+            timer: Math.min(timer, newDuration), 
+            duration: newDuration
+        };
+    default:
+        return state;
+    }
+};
 
 const useTimer = (intialDuration) => {
 
@@ -6,7 +35,6 @@ const useTimer = (intialDuration) => {
 
     const pause = useCallback(
         () => {
-            console.log('pause');
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
                 intervalRef.current = undefined;
@@ -15,59 +43,35 @@ const useTimer = (intialDuration) => {
         [intervalRef]
     );
 
-    const [timer, setTimer] = useState(intialDuration);
-
-    const decrement = () => {
-        setTimer(prev => {
-            if (prev > 0) {
-                if (prev === 1) {
-                    pause();
-                    console.log('DONE!');
-                }
-                return prev - 1;
-            } else {
-                return prev;
-            }
-        });
+    const [{ timer, duration }, dispatch] = useReducer(reducer, { timer: 0, duration: intialDuration });
+    
+    const setTimerDuration = newDuration => {
+        dispatch({ type: actions.SET_DURATION, newDuration });
     };
 
-    const setDuration = useCallback(
-        seconds => setTimer(Math.max(seconds, 0)),
-        [setTimer]
-    );
-
-    const incrementDuration = useCallback(
-        seconds => setTimer(prev => prev + seconds),
-        [setTimer]
-    );
-
-    const decrementDuration = useCallback(
-        seconds => setTimer(prev => Math.max(prev - seconds, 0)),
-        [setTimer]
-    );
+    const increment = () => {
+        dispatch({ type: actions.INCREMENT });
+    };
 
     const reset = useCallback(
-        (seconds) => {
-            console.log('reset');
+        (newDuration) => {
             pause();
-            setDuration(seconds);
+            dispatch({ type: actions.RESET, newDuration: newDuration });
         },
-        [pause, setDuration]
+        [pause]
     );
     
-    const start = (seconds) => {
-        console.log('start');
-        if (typeof seconds === 'number') {
-            setDuration(seconds);
-            console.log('start setting to ' + seconds);
-            intervalRef.current = setInterval(() => decrement(), 1000);
-        } else if (timer > 0) {
-            intervalRef.current = setInterval(() => decrement(), 1000);
-        }
+    const start = () => {
+        pause();
+        intervalRef.current = setInterval(() => increment(), 1000);
+    };
+
+    const restart = (newDuration) => {
+        reset(newDuration);
+        intervalRef.current = setInterval(() => increment(), 1000);
     };
 
     const toggle = () => {
-        console.log('toggle');
         if (intervalRef.current) {
             pause();
         } else {
@@ -75,16 +79,18 @@ const useTimer = (intialDuration) => {
         }
     };
 
+    const timeLeft = duration - timer;
+
     return {
         start,
         pause,
         toggle,
+        restart,
         reset,
-        incrementDuration,
-        decrementDuration,
-        timer,
-        minutes: Math.floor(timer / 60),
-        seconds: timer % 60
+        setTimerDuration,
+        timeLeft,
+        minutes: Math.floor(timeLeft / 60),
+        seconds: timeLeft % 60
     };
 };
 
