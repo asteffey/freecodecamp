@@ -1,5 +1,5 @@
 {
-  "npmClinet": "yarn",
+  "npmClient": "yarn",
   "packages": [
     "root",
     "front-end-libraries-projects/*",
