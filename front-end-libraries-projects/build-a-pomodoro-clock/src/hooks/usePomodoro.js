@@ -39,7 +39,7 @@ const usePomodoro = (doAlarm, settings = defaultSettings) => {
         [setStatus]
     );
 
-    const { toggle, restart, pause, reset: resetTimer, timeLeft, setTimerDuration, minutes, seconds } = useTimer(sessionLength * 60);
+    const { toggle, restart, pause, reset: resetTimer, timeLeft, setTimerDuration, minutes, seconds, isRunning } = useTimer(sessionLength * 60);
 
     const setLength = useCallback((type) => (value) => {
         const setCurrent = type === 'break' ? setBreakLength : setSessionLength;
@@ -102,7 +102,8 @@ const usePomodoro = (doAlarm, settings = defaultSettings) => {
         status,
         displayTime,
         toggle,
-        reset
+        reset,
+        isRunning
     };
 };
 

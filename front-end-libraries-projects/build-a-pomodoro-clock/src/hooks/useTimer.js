@@ -1,28 +1,42 @@
 import { useCallback, useRef, useReducer } from 'react';
 
 const actions = {
+    START: 'START',
+    PAUSE: 'PAUSE',
     INCREMENT: 'INCREMENT',
+    RESTART: 'RESTART',
     RESET: 'RESET',
     SET_DURATION: 'SET_DURATION',
 };
 
+const initialState = { timer: 0, duration: 0, isRunning: false };
 export const reducer = (state, {type, newDuration}) => {
-    const {timer, duration} = state;
+    const {timer, duration, isRunning} = state;
     switch (type) {
+    case actions.START:
+    case actions.PAUSE:
+        return {
+            ...state,
+            isRunning: type === actions.START
+        };
     case actions.INCREMENT:
         return {
             timer: Math.min(timer + 1, duration), 
-            duration
+            duration,
+            isRunning: timer + 1 < duration
         };
+    case actions.RESTART:
     case actions.RESET:
         return {
             timer: 0, 
-            duration: typeof newDuration === 'number' ? newDuration : duration
+            duration: typeof newDuration === 'number' ? newDuration : duration,
+            isRunning: type === actions.RESTART
         };
     case actions.SET_DURATION:
         return {
             timer: Math.min(timer, newDuration), 
-            duration: newDuration
+            duration: newDuration,
+            isRunning
         };
     default:
         return state;
@@ -32,8 +46,19 @@ export const reducer = (state, {type, newDuration}) => {
 const useTimer = (intialDuration) => {
 
     const intervalRef = useRef();
+ 
+    const [{ timer, duration, isRunning }, dispatch] = useReducer(reducer, { ...initialState, duration: intialDuration });
+    
+    const setTimerDuration = newDuration => {
+        dispatch({ type: actions.SET_DURATION, newDuration });
+    };
 
-    const pause = useCallback(
+    const increment = useCallback(
+        () => dispatch({ type: actions.INCREMENT }),
+        []
+    );
+
+    const stopInterval = useCallback(
         () => {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
@@ -43,41 +68,56 @@ const useTimer = (intialDuration) => {
         [intervalRef]
     );
 
-    const [{ timer, duration }, dispatch] = useReducer(reducer, { timer: 0, duration: intialDuration });
-    
-    const setTimerDuration = newDuration => {
-        dispatch({ type: actions.SET_DURATION, newDuration });
-    };
+    const startInterval = useCallback(
+        () => {
+            stopInterval();
+            intervalRef.current = setInterval(() => increment(), 1000);
+        },
+        [stopInterval, intervalRef, increment]
+    );
 
-    const increment = () => {
-        dispatch({ type: actions.INCREMENT });
-    };
+    const start = useCallback(
+        () => {
+            startInterval();
+            dispatch({ type: actions.START });
+        },
+        [startInterval]
+    );
+
+    const pause = useCallback(
+        () => {
+            stopInterval();
+            dispatch({ type: actions.PAUSE });
+        },
+        [stopInterval]
+    );
+
+    const toggle = useCallback(
+        () => {
+            if (intervalRef.current) {
+                pause();
+            } else {
+                start();
+            }
+        },
+        [pause, start]
+    );
+    
+    const restart = useCallback(
+        (newDuration) => {
+            startInterval();
+            dispatch({ type: actions.RESTART, newDuration: newDuration });
+        },
+        [startInterval]        
+    );
 
     const reset = useCallback(
         (newDuration) => {
-            pause();
+            stopInterval();
             dispatch({ type: actions.RESET, newDuration: newDuration });
         },
-        [pause]
+        [stopInterval]
     );
-    
-    const start = () => {
-        pause();
-        intervalRef.current = setInterval(() => increment(), 1000);
-    };
-
-    const restart = (newDuration) => {
-        reset(newDuration);
-        intervalRef.current = setInterval(() => increment(), 1000);
-    };
-
-    const toggle = () => {
-        if (intervalRef.current) {
-            pause();
-        } else {
-            start();
-        }
-    };
 
     const timeLeft = duration - timer;
 
@@ -90,7 +130,8 @@ const useTimer = (intialDuration) => {
         setTimerDuration,
         timeLeft,
         minutes: Math.floor(timeLeft / 60),
-        seconds: timeLeft % 60
+        seconds: timeLeft % 60,
+        isRunning
     };
 };
 
