@@ -1,7 +1,7 @@
 import React from 'react';
-import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './theme';
 
-const ThemeProvider = (props) => <StyledThemeProvider theme={theme} {...props} />;
+const MyThemeProvider = (props) => <ThemeProvider theme={theme} {...props} />;
 
-export default ThemeProvider;
+export default MyThemeProvider;

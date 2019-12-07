@@ -66,6 +66,79 @@ describe('useTimer', () => {
         });
     });
 
+    describe('isRunning', () => {
+        test('running after start', () => {
+            act(() => {
+                timer.current.start();
+            });
+
+            expect(timer.current.isRunning).toBe(true);
+        });
+
+        test('running after restart', () => {
+            act(() => {
+                timer.current.restart();
+            });
+
+            expect(timer.current.isRunning).toBe(true);
+        });
+
+        test('not running before start', () => {
+            act(() => {
+                tick();
+            });
+
+            expect(timer.current.isRunning).toBe(false);
+        });
+
+        test('not running before start', () => {
+            act(() => {
+                tick();
+            });
+
+            expect(timer.current.isRunning).toBe(false);
+        });
+
+        test('not running after pause', () => {
+            act(() => {
+                timer.current.start();
+                tick();
+                timer.current.pause();
+            });
+
+            expect(timer.current.isRunning).toBe(false);
+        });
+
+        test('not running after reset', () => {
+            act(() => {
+                timer.current.start();
+                tick();
+                timer.current.reset();
+            });
+
+            expect(timer.current.isRunning).toBe(false);
+        });
+
+        test('not running when clock finished', () => {
+            act(() => {
+                timer.current.start();
+                tick(initialDuration);
+            });
+
+            expect(timer.current.isRunning).toBe(false);
+        });
+
+        test('not running after clock finished', () => {
+            act(() => {
+                timer.current.start();
+                tick(initialDuration + 2);
+            });
+
+            expect(timer.current.isRunning).toBe(false);
+        });
+
+    });
+
     test('won\'t decrement without start', () => {
         act(() => {
             tick(1);
