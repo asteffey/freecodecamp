@@ -4,7 +4,7 @@
   "homepage": "https://asteffey.github.io/freecodecamp/build-a-pomodoro-clock",
   "private": true,
   "dependencies": {
-    "@asteffey/react-fcc-test": "^1.0.6",
+    "@asteffey/react-fcc-test": "^1.0.8",
     "@material-ui/core": "^4.5.2",
     "@material-ui/icons": "^4.5.1",
     "clsx": "^1.0.4",

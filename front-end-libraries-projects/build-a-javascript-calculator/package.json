@@ -4,7 +4,7 @@
   "homepage": "https://asteffey.github.io/freecodecamp/build-a-javascript-calculator",
   "private": true,
   "dependencies": {
-    "@asteffey/react-fcc-test": "^1.0.6",
+    "@asteffey/react-fcc-test": "^1.0.8",
     "@kennethormandy/react-fittext": "^0.6.0",
     "@rebass/layout": "^4.0.6",
     "@rebass/preset": "^4.0.5",
