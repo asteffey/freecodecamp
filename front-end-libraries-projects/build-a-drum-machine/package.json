@@ -4,7 +4,7 @@
   "homepage": "https://asteffey.github.io/freecodecamp/build-a-drum-machine",
   "private": true,
   "dependencies": {
-    "@asteffey/react-fcc-test": "^1.0.6",
+    "@asteffey/react-fcc-test": "^1.0.8",
     "@rebass/layout": "^4.0.6",
     "@rebass/preset": "^4.0.5",
     "emotion-theming": "^10.0.19",

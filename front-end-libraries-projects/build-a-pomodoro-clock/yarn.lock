@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@asteffey/react-fcc-test@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@asteffey/react-fcc-test/-/react-fcc-test-1.0.6.tgz#d5bcc448a35cdf026051a674839a4517619fc3fc"
-  integrity sha512-eop5/DlOaQ5fprEKN05/l8TeI10SsbU/OcriFyBcoUZo8m+39MrSztPDayw9vk+gna+OWG+a4vQZlP+uLDxbSw==
+"@asteffey/react-fcc-test@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@asteffey/react-fcc-test/-/react-fcc-test-1.0.8.tgz#571a48460f7aaf2ef0345ae13018806880712966"
+  integrity sha512-Hc2j0Z67al1vJrIGdSyTRnXvkFOaTbLaTG7TDusTOFHSKOdO/qK6LagJckErMsjMoJl7DYL8Xfukv75hlEf4Ng==
   dependencies:
     url-search-params-polyfill "^7.0.0"
 
