@@ -4,7 +4,7 @@
   "homepage": "https://asteffey.github.io/freecodecamp/build-a-markdown-previewer",
   "private": true,
   "dependencies": {
-    "@asteffey/react-fcc-test": "^1.0.6",
+    "@asteffey/react-fcc-test": "^1.0.8",
     "@bootstrap-styled/v4": "^3.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
