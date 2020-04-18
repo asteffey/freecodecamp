@@ -2,9 +2,12 @@ import d3 from '../../d3-plus';
 
 const cyclistDataUrl = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json';
 
+const category = 'Nationality';
+
 const getYear = ({Year}) => Year;
 const getDuration = ({duration}) => duration;
-const getNationality = ({Nationality}) => Nationality;
+// const getNationality = ({Nationality}) => Nationality;
+const getCategory = (datum) => datum[category];
 const getX = ({x}) => x;
 const getY = ({y}) => y;
 
@@ -118,34 +121,36 @@ const d3CyclistChart = (svg, svgWidth, svgHeight) => {
             svg.call(tip);
 
             const color = d3.scaleOrdinal(d3.schemeCategory10)
-                .domain([...new Set(data.map(getNationality))].sort());
-            const getNationalityColor = datum => color(getNationality(datum));
+                .domain([...new Set(data.map(getCategory))].sort());
+            const getColor = datum => color(getCategory(datum));
 
             const legend = svg.append('g')
-                .attr('id', 'legend')
-                .attr('transform', `translate(${xMax - 115}, ${yMin + 40})`);
+                .attr('id', 'legend');
             legend.call(d3.legendColor()
                 .title('Nationality')
                 .shape('circle')
                 .shapeRadius(pointRadius)
                 .shapePadding(10)
                 .scale(color));
-            const legendSize = legend.node().getBBox();
+            const legendBox = legend.node().getBBox();
             const legendPadding = 10;
-            const rect = legend.insert("rect", ".legendCells")
+            const legendMargin = 10;
+            const legendX = xMax - legendBox.width + legendBox.x - legendPadding - legendMargin;
+            const legendY = yMin - legendBox.y + legendPadding + legendMargin;
+            legend.attr('transform', `translate(${legendX}, ${legendY})`);
+            legend.insert('rect', '.legendCells')
                 .attr('id', 'legend-background')
-                .attr("x", legendSize.x - legendPadding)
-                .attr("y", legendSize.y - legendPadding)
-                .attr("width", legendSize.width + (legendPadding*2))
-                .attr("height", legendSize.height + (legendPadding*2));
-
+                .attr('x', legendBox.x - legendPadding)
+                .attr('y', legendBox.y - legendPadding)
+                .attr('width', legendBox.width + (legendPadding*2))
+                .attr('height', legendBox.height + (legendPadding*2));
             
             svg.appendForEach('circle', data)
                 .attr('class', 'dot')
                 .attr('cx', getX)
                 .attr('cy', getY)
                 .attr('r', pointRadius)
-                .style('fill', getNationalityColor)
+                .style('fill', getColor)
                 .attr('data-xvalue', getYear)
                 .attr('data-yvalue', getDuration)
                 .on('mouseover', tip.show)
