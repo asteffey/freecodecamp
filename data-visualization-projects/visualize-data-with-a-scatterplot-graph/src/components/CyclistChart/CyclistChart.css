@@ -1,0 +1,54 @@
+#title {
+    text-align: center;
+    margin: 0;
+    padding: 0.67em 0 0.67em 0;
+    color: #2c506d;
+}
+
+#background {
+    fill: rgb(200, 200, 200);
+}
+
+.gdpLine {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 5;
+}
+
+.bar {
+    fill: rgba(70, 130, 180, 0.1);
+}
+
+.bar:hover {
+    fill: rgba(70, 130, 180, 0.9);
+}
+
+.grid line {
+    stroke: rgba(0, 0, 0, 0.4);
+}
+
+#tooltip {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(176, 196, 222, 0.7);
+    box-shadow: 1px 1px 10px;
+    padding: 5px;
+}
+
+svg {
+    font-size: 20px;
+}
+
+#legend-background {
+    fill: rgba(255, 255, 255, 0.5);
+}
+
+.legendTitle {
+    font-weight: bolder;
+    width: 100px;
+}
+
+.tick text {
+    font: 20px sans-serif;
+}
