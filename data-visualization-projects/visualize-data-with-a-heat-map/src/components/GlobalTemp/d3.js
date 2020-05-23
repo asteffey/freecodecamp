@@ -1,7 +1,7 @@
 import d3plus from '../../d3-plus';
 
 const dataUrl = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json';
-const chartPadding = { top: 15, right: 35, bottom: 15, left: 80 };
+const chartPadding = { top: 15, right: 35, bottom: 115, left: 80 };
 
 const d3Chart = (svg, svgWidth, svgHeight) => {
     const { chart, width, height } = paddedChart(svg, svgWidth, svgHeight, chartPadding);
@@ -103,7 +103,7 @@ function createTip(chart, { cellWidth, width }) {
         .style('font-size', () => `${svgToPixel(15)}px`)
         .html(({ year, month, temperature }) => `
             ${toMonthName(month)} ${year}<br/>
-            ${temperature.toFixed(2)}&#8451;
+            ${temperature.toFixed(2)} &#8451;
         `);
 }
 
@@ -290,29 +290,29 @@ function unhighlight({ month, year }) {
     }
 }
 
-const defaultLegendSettings = {
-    padding: 10,
-    margin: 10
-};
-function appendLegend(chart, { cellWidth, colorScale, width: chartWidth }, settings) {
-    const { padding, margin } = { ...defaultLegendSettings, ...settings };
+function appendLegend(svg, { colorScale, height, width }) {
+    const shapes = 40;
+    const yOffset = height + 60;
+    const padding = 10;
 
-    chart.append('g')
+    svg.append('g')
         .attr('id', 'legend')
+        .style('font-size', '10px')
         .call(d3plus.legendColor()
-            .title('Temperatures')
+            .orient('horizontal')
+            .ascending(true)
+            .title('Temperatures (℃)')
             .shape('rect')
-            .shapeHeight(cellWidth)
-            .shapeWidth(cellWidth)
-            .shapePadding(10)
+            .shapePadding(0)
+            .shapeHeight(15)
+            .shapeWidth((width - padding * 2) / shapes)
+            .cells(shapes)
+            .labelFormat(d3plus.format('.1f'))
             .scale(colorScale)
         )
         .call(legend => {
             const { x, y, width, height } = legend.node().getBBox();
-            legend.attr('transform', `translate(
-                ${chartWidth - width + x - padding - margin}, 
-                ${0 - y + padding + margin}
-            )`);
+            legend.attr('transform', `translate(${padding}, ${yOffset})`);
             legend.insert('rect', '.legendCells').attrs({
                 id: 'legend-background',
                 x: x - padding,
