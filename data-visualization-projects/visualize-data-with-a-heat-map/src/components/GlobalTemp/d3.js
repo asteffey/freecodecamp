@@ -79,26 +79,6 @@ function parse({ baseTemperature, monthlyVariance }, width, height) {
     }
 }
 
-function averageBy(data, valueKey, byKey) {
-    const sumWithCount = data.reduce((grouped, datum) => {
-        const by = datum[byKey];
-        const value = datum[valueKey];
-        if (!grouped[by]) {
-            grouped[by] = { sum: value, count: 1 };
-        } else {
-            grouped[by].sum += value;
-            grouped[by].count += 1;
-        }
-        return grouped;
-    }, {});
-
-    return Object.entries(sumWithCount)
-        .map(([by, { sum, count }]) => ({
-            [byKey]: by,
-            [valueKey]: sum / count
-        }));
-}
-
 function createTip(chart, { cellWidth, width }) {
     const offset = cellWidth * 4;
 
