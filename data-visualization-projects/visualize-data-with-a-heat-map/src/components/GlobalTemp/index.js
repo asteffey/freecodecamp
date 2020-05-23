@@ -17,7 +17,7 @@ const GlobalTemp = () => {
         <>
             <h1 id='title' ref={ref}>Average Global Temperature</h1>
             <h3 id='description' ref={ref}>Average Global Land-Surface Temperatures from 1753 to 2015</h3>
-            <FullScreenContainer marginTop={height + 30}>
+            <FullScreenContainer marginTop={height + 100}>
                 <ScaledD3Container drawSvg={d3Chart} viewBox={{ width: 1600, height: 900 }} />
             </FullScreenContainer>
         </>
