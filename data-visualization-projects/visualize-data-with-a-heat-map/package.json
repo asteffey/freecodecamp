@@ -1,7 +1,7 @@
 {
-  "name": "visualize-data-with-a-scatterplot-graph",
+  "name": "visualize-data-with-a-heatmap",
   "version": "0.1.0",
-  "homepage": "https://asteffey.github.io/freecodecamp/visualize-data-with-a-scatterplot-graph",
+  "homepage": "https://asteffey.github.io/freecodecamp/visualize-data-with-a-heatmap",
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.8",
@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -a -d build -e ./visualize-data-with-a-scatterplot-graph"
+    "deploy": "gh-pages -a -d build -e ./visualize-data-with-a-heatmap"
   },
   "eslintConfig": {
     "extends": "react-app"
