@@ -1,0 +1,100 @@
+#title {
+    text-align: center;
+    margin: 0;
+    padding: 0.67em 0 0.67em 0;
+    color: #2c506d;
+}
+
+#description {
+    text-align: center;
+    margin: 0;
+    padding: 0 0 0.34em 0;
+    color: #2c506d;
+}
+
+#background {
+    fill: rgb(200, 200, 200);
+}
+
+.gdpLine {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 5;
+}
+
+.bar {
+    fill: rgba(70, 130, 180, 0.1);
+}
+
+.bar:hover {
+    fill: rgba(70, 130, 180, 0.9);
+}
+
+#month-grid .domain, #year-grid .domain {
+    display: none;
+}
+
+#month-grid line, #year-grid line {
+    stroke: rgba(0, 0, 0, 0.05);
+}
+
+
+#month-grid .highlighted line, #year-grid .highlighted line {
+    stroke: rgba(0, 0, 0, 0.6);
+}
+
+#tooltip {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(176, 196, 222, 0.7);
+    box-shadow: 1px 1px 10px;
+    padding: 5px;
+}
+
+#tooltip:hover {
+    display: none;
+}
+
+svg {
+    font-size: 20px;
+}
+
+#legend-background {
+    fill: rgba(255, 255, 255, 0.5);
+}
+
+.legendTitle {
+    font-weight: bolder;
+    width: 100px;
+}
+
+.tick text {
+    font: 15px sans-serif;
+}
+
+#x-axis .tick text {
+    font: 12px sans-serif;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.cell {
+    stroke: rgba(0,0,0,0.05);
+}
+
+#x-axis .highlighted text, #y-axis .highlighted text {
+    font: 14px sans-serif;
+    font-weight: bolder;
+    /* color: steelblue; */
+    text-shadow: 1px 1px 5px lightblue;
+}
+
+#y-axis .highlighted text {
+    font: 16px sans-serif;
+    font-weight: bolder;
+    /* color: steelblue; */
+    text-shadow: 1px 1px 5px lightblue;
+}
