@@ -3,7 +3,8 @@
   "packages": [
     "root",
     "front-end-libraries-projects/*",
-    "responsive-web-design/*"
+    "responsive-web-design/*",
+    "data-visualization-projects"
   ],
   "version": "0.0.0"
 }
