@@ -1,0 +1,51 @@
+{
+  "name": "visualize-data-with-a-choropleth-map",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@asteffey/react-fcc-test": "^1.0.8",
+    "d3": "^5.15.0",
+    "d3-svg-legend": "^2.25.6",
+    "d3-tip": "https://github.com/asteffey/d3-tip#attr-style-func",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "react-use-dimensions": "^1.2.1",
+    "styled-components": "^4.4.1",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.25",
+    "eslint-plugin-jest": "^23.2.0",
+    "gh-pages": "^2.1.1",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^3.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "test:integration": "jest -c integration/jest.config.js",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
