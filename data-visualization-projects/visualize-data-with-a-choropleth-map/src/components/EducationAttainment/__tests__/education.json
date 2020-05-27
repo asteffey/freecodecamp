@@ -1,0 +1,20 @@
+[
+	{
+		"fips": 1,
+		"state": "AL",
+		"area_name": "Test County 1",
+		"bachelorsOrHigher": 11.1
+    },
+    {
+		"fips": 2,
+		"state": "TX",
+		"area_name": "Test County 2",
+		"bachelorsOrHigher": 22.2
+    },
+    {
+		"fips": 3,
+		"state": "VA",
+		"area_name": "Test County 3",
+		"bachelorsOrHigher": 33.3
+	}
+]
