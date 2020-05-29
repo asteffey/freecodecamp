@@ -40,20 +40,37 @@ function paddedChart(svg, svgWidth, svgHeight, { left, top, right, bottom }) {
 }
 
 function parse([countyData, educationData], width, height) {
+    const educationById = groupBy(educationData, 'fips');
+    const data = countyData.map(({id, ...topology}) =>
+        ({id, ...topology, ...educationById[id]})
+    );
+
     return {
         width,
         height,
-        data: countyData
+        data,
+        colorScale: d3plus.scaleSequential(
+            d3plus.extent(data, ({ bachelorsOrHigher }) => bachelorsOrHigher),
+            d3plus.interpolateBlues)
     }
 }
 
-function appendCounties(chart, {data, width, height}) {
+function groupBy (array, key) {
+    const grouped = {};
+    array.forEach(({[key]: by, ...item}) => grouped[by] = item);
+    return grouped;
+}
+
+function appendCounties(chart, { data, width, height, colorScale }) {
     chart.append('g')
         .attr('id', 'nation')
         .call(nation => {
             nation.appendForEach('path', data)
-                .attr('class', 'county')
-                .attr('stroke', 'blue')
+                .attrs(({ bachelorsOrHigher }) => ({
+                    'class': 'county',
+                    stroke: 'black',
+                    fill: colorScale(bachelorsOrHigher)
+                }))
                 .attr('d', d3plus.geoPath());
         })
         .call(containAndCenter, width, height);
