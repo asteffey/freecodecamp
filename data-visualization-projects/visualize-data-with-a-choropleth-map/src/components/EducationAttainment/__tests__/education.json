@@ -16,5 +16,11 @@
 		"state": "VA",
 		"area_name": "Test County 3",
 		"bachelorsOrHigher": 33.3
+	},
+    {
+		"fips": 4,
+		"state": "CA",
+		"area_name": "Test County 4",
+		"bachelorsOrHigher": 44.4
 	}
 ]
