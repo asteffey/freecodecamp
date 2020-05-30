@@ -41,8 +41,8 @@ function paddedChart (svg, svgWidth, svgHeight, { left, top, right, bottom }) {
 
 function parse ([countyData, educationData], width, height) {
   const educationById = groupBy(educationData, 'fips')
-  const data = countyData.map(({ id, ...topology }) =>
-    ({ id, ...topology, ...educationById[id] })
+  const data = countyData.map(({ id: fips, ...topology }) =>
+    ({ fips, ...topology, ...educationById[fips] })
   )
 
   return {
@@ -66,10 +66,12 @@ function appendCounties (chart, { data, width, height, colorScale }) {
     .attr('id', 'nation')
     .call(nation => {
       nation.appendForEach('path', data)
-        .attrs(({ bachelorsOrHigher }) => ({
+        .attrs(({ fips, bachelorsOrHigher }) => ({
           class: 'county',
           stroke: 'black',
-          fill: colorScale(bachelorsOrHigher)
+          fill: colorScale(bachelorsOrHigher),
+          'data-fips': fips,
+          'data-education': bachelorsOrHigher
         }))
         .attr('d', d3plus.geoPath())
     })
