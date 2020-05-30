@@ -26,41 +26,62 @@ beforeEach(async () => {
   await d3Chart(svg, width, height)
 })
 
-it('User Story #3: My choropleth should have counties with a corresponding class="county" that represent the data.', () => {
-  const counties = document.querySelector('.county')
-  expect(counties).toBeInTheDocument()
-})
+describe('counties', () => {
+  it('User Story #3: My choropleth should have counties with a corresponding class="county" that represent the data.', () => {
+    const counties = document.querySelector('.county')
+    expect(counties).toBeInTheDocument()
+  })
 
-it('User Story #4: There should be at least 4 different fill colors used for the counties.', () => {
-  const counties = document.querySelectorAll('.county')
+  it('User Story #4: There should be at least 4 different fill colors used for the counties.', () => {
+    const counties = document.querySelectorAll('.county')
 
-  const colors = new Set()
-  counties.forEach(county =>
-    colors.add(county.style.fill || county.getAttribute('fill'))
-  )
+    const colors = new Set()
+    counties.forEach(county =>
+      colors.add(county.style.fill || county.getAttribute('fill'))
+    )
 
-  expect(colors.size).toBeGreaterThanOrEqual(4)
-})
+    expect(colors.size).toBeGreaterThanOrEqual(4)
+  })
 
-it('User Story #5: My counties should each have data-fips and data-education properties containing their corresponding fips and education values.', () => {
-  const counties = [...document.querySelectorAll('.county')]
+  it('User Story #5: My counties should each have data-fips and data-education properties containing their corresponding fips and education values.', () => {
+    const counties = [...document.querySelectorAll('.county')]
 
-  counties.forEach(county => {
-    expect(county.getAttribute('data-fips')).not.toBeNull()
-    expect(county.getAttribute('data-education')).not.toBeNull()
+    counties.forEach(county => {
+      expect(county.getAttribute('data-fips')).not.toBeNull()
+      expect(county.getAttribute('data-education')).not.toBeNull()
+    })
+  })
+
+  it('User Story #6: My choropleth should have a county for each provided data point.', () => {
+    const counties = document.querySelectorAll('.county')
+    expect(counties.length).toEqual(fakeEducation.length)
+  })
+
+  it('User Story #7: The counties should have data-fips and data-education values that match the sample data.', () => {
+    const counties = [...document.querySelectorAll('.county')]
+
+    expect(counties.map(c => c.getAttribute('data-fips')).sort())
+      .toEqual(fakeEducation.map(({ fips }) => fips.toString()).sort())
+    expect(counties.map(c => c.getAttribute('data-education')).sort())
+      .toEqual(fakeEducation.map(({ bachelorsOrHigher }) => bachelorsOrHigher.toString()).sort())
   })
 })
 
-it('User Story #6: My choropleth should have a county for each provided data point.', () => {
-  const counties = document.querySelectorAll('.county')
-  expect(counties.length).toEqual(fakeEducation.length)
-})
+describe('legend', () => {
+  it('User Story #8: My choropleth should have a legend with a corresponding id="legend".', () => {
+    const legend = document.querySelector('#legend')
 
-it('User Story #7: The counties should have data-fips and data-education values that match the sample data.', () => {
-  const counties = [...document.querySelectorAll('.county')]
+    expect(legend).toBeInTheDocument()
+  })
 
-  expect(counties.map(c => c.getAttribute('data-fips')).sort())
-    .toEqual(fakeEducation.map(({ fips }) => fips.toString()).sort())
-  expect(counties.map(c => c.getAttribute('data-education')).sort())
-    .toEqual(fakeEducation.map(({ bachelorsOrHigher }) => bachelorsOrHigher.toString()).sort())
+  it('User Story #9: There should be at least 4 different fill colors used for the legend.', () => {
+    const legendRects = document.querySelectorAll('#legend rect')
+
+    const colors = new Set()
+    legendRects.forEach(county =>
+      colors.add(county.style.fill || county.getAttribute('fill'))
+    )
+
+    expect(colors.size).toBeGreaterThanOrEqual(4)
+  })
 })

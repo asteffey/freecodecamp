@@ -17,7 +17,9 @@ const d3Chart = (svg, svgWidth, svgHeight) => {
   ])
     .then(data => parse(data, width, height))
     .then(data => {
-      chart.call(appendCounties, data)
+      chart
+        .call(appendCounties, data)
+        .call(appendLegend, data)
     })
     .catch(err => console.error(err))
 }
@@ -45,12 +47,17 @@ function parse ([countyData, educationData], width, height) {
     ({ fips, ...topology, ...educationById[fips] })
   )
 
+  data.forEach(item => {
+    const { bachelorsOrHigher } = item
+    item.bachelorsOrHigherPercent = bachelorsOrHigher / 100
+  })
+
   return {
     width,
     height,
     data,
     colorScale: d3plus.scaleSequential(
-      d3plus.extent(data, ({ bachelorsOrHigher }) => bachelorsOrHigher),
+      d3plus.extent(data, ({ bachelorsOrHigherPercent }) => bachelorsOrHigherPercent),
       d3plus.interpolateBlues)
   }
 }
@@ -66,10 +73,10 @@ function appendCounties (chart, { data, width, height, colorScale }) {
     .attr('id', 'nation')
     .call(nation => {
       nation.appendForEach('path', data)
-        .attrs(({ fips, bachelorsOrHigher }) => ({
+        .attrs(({ fips, bachelorsOrHigher, bachelorsOrHigherPercent }) => ({
           class: 'county',
           stroke: 'black',
-          fill: colorScale(bachelorsOrHigher),
+          fill: colorScale(bachelorsOrHigherPercent),
           'data-fips': fips,
           'data-education': bachelorsOrHigher
         }))
@@ -89,6 +96,27 @@ function containAndCenter (selection, chartWidth, chartHeight) {
     // -x moves to 0 and xOffset centers
     `scale(${scale}) translate(${(-x + xOffset)}, ${-y + yOffset})`
   )
+}
+
+function appendLegend(chart, { colorScale, width, height }) {
+  const shapes = 8
+
+  chart.append('g')
+    .attrs({
+      id: 'legend',
+      transform: `translate(${width * 0.65}, ${height * 0.05})`
+    })
+    .style('font-size', '14px')
+    .call(d3plus.legendColor()
+      .orient('horizontal')
+      .shape('rect')
+      .shapePadding(0)
+      .shapeHeight(15)
+      .shapeWidth(width / 4 / shapes)
+      .cells(shapes)
+      .labelFormat(d3plus.format('.0%'))
+      .scale(colorScale)
+    )
 }
 
 export default d3Chart
