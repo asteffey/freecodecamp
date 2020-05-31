@@ -17,8 +17,10 @@ const d3Chart = (svg, svgWidth, svgHeight) => {
   ])
     .then(data => parse(data, width, height))
     .then(data => {
+      const tip = createTip(chart, data)
       chart
-        .call(appendCounties, data)
+        .call(tip)
+        .call(appendCounties, data, tip)
         .call(appendLegend, data)
     })
     .catch(err => console.error(err))
@@ -43,9 +45,10 @@ function paddedChart (svg, svgWidth, svgHeight, { left, top, right, bottom }) {
 
 function parse ([countyData, educationData], width, height) {
   const educationById = groupBy(educationData, 'fips')
-  const data = countyData.map(({ id: fips, ...topology }) =>
-    ({ fips, ...topology, ...educationById[fips] })
-  )
+  const data = countyData.map(({ id: fips, ...topology }) => {
+    const { area_name: areaName, ...education } = educationById[fips]
+    return { fips, ...topology, areaName, ...education }
+  })
 
   data.forEach(item => {
     const { bachelorsOrHigher } = item
@@ -68,7 +71,25 @@ function groupBy (array, key) {
   return grouped
 }
 
-function appendCounties (chart, { data, width, height, colorScale }) {
+function createTip (chart, { width }) {
+  function svgToPixel (svgUnit) {
+    const pixelWidth = chart.node().getBoundingClientRect().width
+    return svgUnit * pixelWidth / width
+  }
+
+  return d3plus.tip()
+    .direction('n')
+    .offset([0, 10])
+    .attr('id', 'tooltip')
+    .attr('data-education', ({ bachelorsOrHigher }) => bachelorsOrHigher)
+    .style('font-size', () => `${svgToPixel(15)}px`)
+    .html(toTooltipHtml)
+}
+
+export const toTooltipHtml = ({ areaName, state, bachelorsOrHigherPercent }) =>
+    `${areaName}, ${state}: ${d3plus.format('.0%')(bachelorsOrHigherPercent)}`
+
+function appendCounties (chart, { data, width, height, colorScale }, tip) {
   chart.append('g')
     .attr('id', 'nation')
     .call(nation => {
@@ -81,6 +102,8 @@ function appendCounties (chart, { data, width, height, colorScale }) {
           'data-education': bachelorsOrHigher
         }))
         .attr('d', d3plus.geoPath())
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
     })
     .call(containAndCenter, width, height)
 }
@@ -98,7 +121,7 @@ function containAndCenter (selection, chartWidth, chartHeight) {
   )
 }
 
-function appendLegend(chart, { colorScale, width, height }) {
+function appendLegend (chart, { colorScale, width, height }) {
   const shapes = 8
 
   chart.append('g')
