@@ -1,0 +1,58 @@
+{
+  "name": "visualize-data-with-a-treemap-diagram",
+  "version": "0.1.0",
+  "homepage": "https://asteffey.github.io/freecodecamp/visualize-data-with-a-treemap-diagram",
+  "private": true,
+  "dependencies": {
+    "@asteffey/react-fcc-test": "^1.0.8",
+    "d3": "^5.15.0",
+    "d3-svg-legend": "^2.25.6",
+    "d3-tip": "https://github.com/asteffey/d3-tip#attr-style-func",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-use-dimensions": "^1.2.1",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^7.7.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.25",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-jest": "^23.13.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "gh-pages": "^2.1.1",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "jest-fetch-mock": "^3.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "lint": "eslint src",
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -a -d build -e ./visualize-data-with-a-treemap-diagram"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

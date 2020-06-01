@@ -1,0 +1,43 @@
+#title {
+    text-align: center;
+    margin: 0;
+    padding: 0.67em 0 0.67em 0;
+    color: #2c506d;
+}
+
+#description {
+    text-align: center;
+    margin: 0;
+    padding: 0 0 0.34em 0;
+    color: #2c506d;
+}
+
+#background {
+    fill: rgb(200, 200, 200);
+}
+
+#tooltip {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(236, 235, 183, 0.9);
+    box-shadow: 1px 1px 10px;
+    padding: 5px;
+}
+
+#tooltip:hover {
+    display: none;
+}
+
+svg {
+    font-size: 20px;
+}
+
+#legend-background {
+    fill: rgba(255, 255, 255, 0.5);
+}
+
+.legendTitle {
+    font-weight: bolder;
+    width: 100px;
+}
