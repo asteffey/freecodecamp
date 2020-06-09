@@ -36,11 +36,11 @@ svg {
     font-size: 20px;
 }
 
-#legend-background {
-    fill: rgba(255, 255, 255, 0.5);
+.legendCells rect {
+    stroke-width: 1;
+    stroke: black;
 }
 
-.legendTitle {
-    font-weight: bolder;
-    width: 100px;
+.legendCells text {
+    fill: white;
 }
