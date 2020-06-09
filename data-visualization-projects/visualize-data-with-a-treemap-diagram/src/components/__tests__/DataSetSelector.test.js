@@ -1,11 +1,11 @@
 import React from 'react'
-import DataSetSelector from './DataSetSelector'
-import DataSetDisplay from './DataSetDisplay'
+import DataSetSelector from '../DataSetSelector'
+import DataSetDisplay from '../DataSetDisplay'
 import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import DataSets from './DataSets'
+import DataSets from '../DataSets'
 
-jest.mock('./DataSetDisplay')
+jest.mock('../DataSetDisplay')
 
 function renderDataSetSelector (path) {
   return render(

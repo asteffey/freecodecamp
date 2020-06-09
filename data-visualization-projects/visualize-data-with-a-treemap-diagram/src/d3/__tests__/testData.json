@@ -1,0 +1,40 @@
+{
+  "name": "Fake",
+  "children": [
+    {
+      "name": "Category 1",
+      "children": [
+        {
+          "name": "aaa",
+          "category": "Category 1",
+          "value": "111"
+        },
+        {
+          "name": "bbb",
+          "category": "Category 1",
+          "value": "222"
+        },
+        {
+          "name": "ccc",
+          "category": "Category 1",
+          "value": "333"
+        }
+      ]
+    },
+    {
+      "name": "Category 2",
+      "children": [
+        {
+          "name": "ddd",
+          "category": "Category 2",
+          "value": "444"
+        },
+        {
+          "name": "eee",
+          "category": "Category 2",
+          "value": "555"
+        }
+      ]
+    }
+  ]
+}

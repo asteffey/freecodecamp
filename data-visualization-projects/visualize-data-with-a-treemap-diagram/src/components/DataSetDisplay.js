@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import ScaledD3Container from './ScaledD3Container'
-import treemapChart from './treemap.d3'
+import treemapChart from '../d3/treemap'
 import useDimensions from 'react-use-dimensions'
 import PropTypes from 'prop-types'
 import './style.css'
+import '../d3/treemap.css'
 
 const FullScreenContainer = styled.div`
-    padding: 10px
-    height: calc(100vh - ${({ marginTop }) => `${marginTop}px`})
+    padding: 10px;
+    height: calc(100vh - ${({ marginTop }) => `${marginTop}px`});
 `
 
 const DataSetDisplay = ({ title, description, url }) => {

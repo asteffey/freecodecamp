@@ -18,6 +18,7 @@ const SvgContainer = styled.div`
 
 const ScaledD3Container = ({ drawSvg, viewBox: { width = 100, height = 100 } }) => {
   const draw = useCallback(svg => {
+    svg.selectAll('*').remove()
     drawSvg(svg, width, height)
   }, [drawSvg, height, width])
 

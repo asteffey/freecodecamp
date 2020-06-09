@@ -1,9 +1,9 @@
-import React, { useRef } from 'react'
-import { render, wait } from '@testing-library/react'
-import DataSetDisplay from './DataSetDisplay'
-import useDimensions from 'react-use-dimensions'
-import treemap from './treemap.d3'
 import { enableFetchMocks } from 'jest-fetch-mock'
+import { render, wait } from '@testing-library/react'
+import React, { useRef } from 'react'
+import useDimensions from 'react-use-dimensions'
+import DataSetDisplay from '../DataSetDisplay'
+import treemap from '../../d3/treemap'
 
 enableFetchMocks()
 
@@ -20,7 +20,7 @@ const fetchedData = {
   ]
 }
 
-jest.mock('./treemap.d3')
+jest.mock('../../d3/treemap')
 jest.mock('react-use-dimensions')
 
 beforeEach(() => {

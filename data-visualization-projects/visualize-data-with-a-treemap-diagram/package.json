@@ -7,6 +7,7 @@
     "@asteffey/react-fcc-test": "^1.0.8",
     "d3": "^5.15.0",
     "d3-svg-legend": "^2.25.6",
+    "d3-textwrap": "^3.0.0",
     "d3-tip": "https://github.com/asteffey/d3-tip#attr-style-func",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
