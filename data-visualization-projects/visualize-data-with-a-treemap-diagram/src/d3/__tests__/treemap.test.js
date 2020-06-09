@@ -1,9 +1,16 @@
+import { fireEvent, waitFor } from '@testing-library/dom'
 import * as d3 from 'd3'
 import treemap from '../treemap'
 import fakeData from './testData.json'
 
 const width = 100
 const height = 100
+
+const sample = (arr) => [
+  arr[0],
+  arr[Math.floor(arr.length / 2)],
+  arr[arr.length - 1]
+]
 
 function mapBy (array, key) {
   const mapped = {}
@@ -123,5 +130,33 @@ describe('legend', () => {
     )
 
     expect(colors.size).toBeGreaterThanOrEqual(2)
+  })
+})
+
+describe('tooltip', () => {
+  it('has a corresponding id="tooltip" which displays more information about the area', async () => {
+    const tiles = sample(document.querySelectorAll('.tile'))
+
+    for (const county of tiles) {
+      fireEvent.mouseOver(county)
+
+      const tooltip = await waitFor(() => document.querySelector('#tooltip'))
+      expect(tooltip).toBeInTheDocument()
+
+      fireEvent.mouseOut(county)
+
+      expect(tooltip).not.toBeVisible()
+    }
+  })
+
+  it('should have a data-value property that corresponds to the data-value of the active area', async () => {
+    const tiles = sample(document.querySelectorAll('.tile'))
+
+    for (const tile of tiles) {
+      fireEvent.mouseOver(tile)
+      const tooltip = await waitFor(() => document.querySelector('#tooltip'))
+      expect(tooltip.getAttribute('data-value'))
+        .toEqual(tile.getAttribute('data-value'))
+    }
   })
 })

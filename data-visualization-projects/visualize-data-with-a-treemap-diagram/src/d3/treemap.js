@@ -12,8 +12,11 @@ const treemapChart = (rawData) => (svg, svgWidth, svgHeight) => {
 
   const data = parse(rawData, width, height)
 
+  const tip = createTip(chart, data)
+
   chart
-    .call(appendTiles, data)
+    .call(tip)
+    .call(appendTiles, data, tip)
     .call(appendLegend, data)
 }
 
@@ -67,7 +70,27 @@ function toTreemap (rawData, width, height) {
   return layout(hierarchy).leaves()
 }
 
-function appendTiles (chart, { data, colorScale }) {
+function createTip (chart, { width }) {
+  function svgToPixel (svgUnit) {
+    const pixelWidth = chart.node().getBoundingClientRect().width
+    return svgUnit * pixelWidth / width
+  }
+
+  return d3plus.tip()
+    .direction('s')
+    .offset([0, 10])
+    .attr('id', 'tooltip')
+    .attr('data-value', ({ data: { value } }) => value)
+    .style('font-size', () => `${svgToPixel(15)}px`)
+    .html(toTooltipHtml)
+}
+
+const toTooltipHtml = ({ data: { name, category, value } }) => `
+  Name: ${name}<br/>
+  Category: ${category}<br/>
+  Value: ${value}`
+
+function appendTiles (chart, { data, colorScale }, tip) {
   const maxArea = d3plus.max(data, ({ width, height }) => width * height)
   const textScaleFactor = 0.3
   function scaleText (width, height) {
@@ -95,6 +118,8 @@ function appendTiles (chart, { data, colorScale }) {
           'data-name': name,
           'data-value': value
         }))
+        .on('mouseover', tip.show) // needed to pass FCC test
+        .on('mouseout', tip.hide) // needed to pass FCC test
     })
     .forEach((g, { width, height, data: { name } }) => {
       g.append('text')
@@ -102,6 +127,18 @@ function appendTiles (chart, { data, colorScale }) {
         .call(d3plus.textwrap().bounds({ width, height }))
       g.select('div')
         .attr('style', `font-size: ${scaleText(width, height) * 20}px`)
+    })
+    .call(g => {
+      g.append('rect')
+        .attrs(({ width, height }) => ({
+          class: 'tileOverlay',
+          x: 0,
+          y: 0,
+          width,
+          height
+        }))
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
     })
 }
 
