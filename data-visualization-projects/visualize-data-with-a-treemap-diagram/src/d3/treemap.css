@@ -1,0 +1,50 @@
+#background {
+    fill: rgb(50, 50, 50);
+}
+
+g.tileParent rect {
+    stroke: rgb(25, 25, 25);
+    stroke-width: 1px;
+}
+
+g.tileParent div {
+    /* font: 14px sans-serif; */
+    color: white;
+    text-shadow: 2px 2px 4px rgb(25, 25, 25);
+
+}
+
+g.tileParent:hover rect {
+    stroke: rgb(0, 0, 0);
+    opacity: 0.5;
+}
+
+.tileOverlay {
+    opacity: 0;
+}
+
+#tooltip {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(200, 200, 200, 0.95);
+    box-shadow: 1px 1px 10px;
+    padding: 5px;
+}
+
+#tooltip:hover {
+    display: none;
+}
+
+svg {
+    font-size: 20px;
+}
+
+.legendCells rect {
+    stroke-width: 1;
+    stroke: black;
+}
+
+.legendCells text {
+    fill: white;
+}
