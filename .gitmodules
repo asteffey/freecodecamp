@@ -13,3 +13,18 @@
 [submodule "responsive-web-design/fcc-tribute-page"]
 	path = responsive-web-design/fcc-tribute-page
 	url = https://github.com/asteffey/fcc-tribute-page.git
+[submodule "data-visualization-projects/fcc-bar-chart"]
+	path = data-visualization-projects/fcc-bar-chart
+	url = https://github.com/asteffey/fcc-bar-chart.git
+[submodule "data-visualization-projects/fcc-choropleth-map"]
+	path = data-visualization-projects/fcc-choropleth-map
+	url = https://github.com/asteffey/fcc-choropleth-map.git
+[submodule "data-visualization-projects/fcc-heat-map"]
+	path = data-visualization-projects/fcc-heat-map
+	url = https://github.com/asteffey/fcc-heat-map.git
+[submodule "data-visualization-projects/fcc-scatterplot-graph"]
+	path = data-visualization-projects/fcc-scatterplot-graph
+	url = https://github.com/asteffey/fcc-scatterplot-graph.git
+[submodule "data-visualization-projects/fcc-treemap-diagram"]
+	path = data-visualization-projects/fcc-treemap-diagram
+	url = https://github.com/asteffey/fcc-treemap-diagram.git
