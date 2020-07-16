@@ -1,7 +1,7 @@
 {
-  "name": "visualize-data-with-a-bar-chart",
+  "name": "fcc-bar-chart",
   "version": "0.1.0",
-  "homepage": "https://asteffey.github.io/freecodecamp/visualize-data-with-a-bar-chart",
+  "homepage": "https://asteffey.github.io/fcc-bar-chart",
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.8",

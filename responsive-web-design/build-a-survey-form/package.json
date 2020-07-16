@@ -1,7 +1,7 @@
 {
-  "name": "build-a-survey-form",
+  "name": "fcc-survey-form",
   "version": "1.0.0",
-  "repository": "https://github.com/asteffey/freecodecamp/tree/master/responsive-web-design/build-a-survey-form",
+  "repository": "https://github.com/asteffey/fcc-survey-form",
   "author": "Andrew Steffey",
   "license": "MIT",
   "private": true,

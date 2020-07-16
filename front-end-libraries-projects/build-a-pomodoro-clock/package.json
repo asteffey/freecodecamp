@@ -1,7 +1,7 @@
 {
-  "name": "build-a-pomodoro-clock",
+  "name": "fcc-pomodoro-clock",
   "version": "0.1.0",
-  "homepage": "https://asteffey.github.io/freecodecamp/build-a-pomodoro-clock",
+  "homepage": "https://asteffey.github.io/fcc-pomodoro-clock",
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.8",

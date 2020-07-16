@@ -1,7 +1,7 @@
 {
-  "name": "build-a-random-quote-machine",
+  "name": "fcc-random-quote-machine",
   "version": "0.1.0",
-  "homepage": "https://asteffey.github.io/freecodecamp/build-a-random-quote-machine",
+  "homepage": "https://asteffey.github.io/fcc-random-quote-machine",
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.8",

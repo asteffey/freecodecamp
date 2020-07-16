@@ -1,7 +1,7 @@
 {
-  "name": "build-a-drum-machine",
+  "name": "fcc-drum-machine",
   "version": "0.1.0",
-  "homepage": "https://asteffey.github.io/freecodecamp/build-a-drum-machine",
+  "homepage": "https://asteffey.github.io/fcc-drum-machine",
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.8",

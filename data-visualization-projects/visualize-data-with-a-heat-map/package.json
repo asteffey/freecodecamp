@@ -1,7 +1,7 @@
 {
-  "name": "visualize-data-with-a-heatmap",
+  "name": "fcc-heatmap",
   "version": "0.1.0",
-  "homepage": "https://asteffey.github.io/freecodecamp/visualize-data-with-a-heatmap",
+  "homepage": "https://asteffey.github.io/fcc-heatmap",
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.8",

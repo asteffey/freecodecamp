@@ -1,7 +1,7 @@
 {
-  "name": "visualize-data-with-a-choropleth-map",
+  "name": "fcc-choropleth-map",
   "version": "0.1.0",
-  "homepage": "https://asteffey.github.io/freecodecamp/visualize-data-with-a-choropleth-map",
+  "homepage": "https://asteffey.github.io/fcc-choropleth-map",
   "private": true,
   "dependencies": {
     "@asteffey/react-fcc-test": "^1.0.8",
