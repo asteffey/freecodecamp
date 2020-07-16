@@ -1,0 +1,15 @@
+[submodule "responsive-web-design/fcc-personal-portfolio-webpage"]
+	path = responsive-web-design/fcc-personal-portfolio-webpage
+	url = https://github.com/asteffey/fcc-personal-portfolio-webpage.git
+[submodule "responsive-web-design/fcc-product-landing-page"]
+	path = responsive-web-design/fcc-product-landing-page
+	url = https://github.com/asteffey/fcc-product-landing-page.git
+[submodule "responsive-web-design/fcc-survey-form"]
+	path = responsive-web-design/fcc-survey-form
+	url = https://github.com/asteffey/fcc-survey-form.git
+[submodule "responsive-web-design/fcc-technical-documentation-page"]
+	path = responsive-web-design/fcc-technical-documentation-page
+	url = https://github.com/asteffey/fcc-technical-documentation-page.git
+[submodule "responsive-web-design/fcc-tribute-page"]
+	path = responsive-web-design/fcc-tribute-page
+	url = https://github.com/asteffey/fcc-tribute-page.git
