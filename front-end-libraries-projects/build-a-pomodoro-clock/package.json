@@ -21,8 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -a -d build -e ./build-a-pomodoro-clock"
+    "predeploy": "yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,7 +42,6 @@
     "@testing-library/react-hooks": "^3.2.1",
     "@types/jest": "^24.0.19",
     "eslint-plugin-jest": "^22.20.0",
-    "gh-pages": "^2.1.1",
     "react-test-renderer": "^16.12.0"
   }
 }

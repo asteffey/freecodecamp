@@ -10,7 +10,6 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "del": "^5.1.0",
-    "gh-pages": "^2.1.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-htmlmin": "^5.0.1",
@@ -20,7 +19,6 @@
   "scripts": {
     "clean": "gulp clean",
     "build": "gulp build",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -a -d dist"
+    "predeploy": "yarn build"
   }
 }

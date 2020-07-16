@@ -27,7 +27,6 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.1.1",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-fetch-mock": "^3.0.3",
     "jest-puppeteer": "^4.4.0",
@@ -40,8 +39,7 @@
     "test:integration": "jest -c integration/jest.config.js",
     "lint": "eslint src",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -a -d build -e ./visualize-data-with-a-choropleth-map"
+    "predeploy": "yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"

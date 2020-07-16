@@ -2,8 +2,7 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "gh-pages": "^2.1.1",
-    "lerna": "^3.20.2"
+    "lerna": "^3.22.1"
   },
   "resolutions": {
     "lerna/**/optimist/minimist": "0.2.1"
