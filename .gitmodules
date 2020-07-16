@@ -28,3 +28,18 @@
 [submodule "data-visualization-projects/fcc-treemap-diagram"]
 	path = data-visualization-projects/fcc-treemap-diagram
 	url = https://github.com/asteffey/fcc-treemap-diagram.git
+[submodule "front-end-libraries-projects/fcc-drum-machine"]
+	path = front-end-libraries-projects/fcc-drum-machine
+	url = https://github.com/asteffey/fcc-drum-machine.git
+[submodule "front-end-libraries-projects/fcc-javascript-calculator"]
+	path = front-end-libraries-projects/fcc-javascript-calculator
+	url = https://github.com/asteffey/fcc-javascript-calculator.git
+[submodule "front-end-libraries-projects/fcc-markdown-previewer"]
+	path = front-end-libraries-projects/fcc-markdown-previewer
+	url = https://github.com/asteffey/fcc-markdown-previewer.git
+[submodule "front-end-libraries-projects/fcc-pomodoro-clock"]
+	path = front-end-libraries-projects/fcc-pomodoro-clock
+	url = https://github.com/asteffey/fcc-pomodoro-clock.git
+[submodule "front-end-libraries-projects/fcc-random-quote-machine"]
+	path = front-end-libraries-projects/fcc-random-quote-machine
+	url = https://github.com/asteffey/fcc-random-quote-machine.git
