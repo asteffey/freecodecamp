@@ -35,7 +35,7 @@ at least basic test coverage (which was rather challenging with D3) and utilize 
 with React, I leaned into using Hooks (even though freeCodeCamp didn't teach that). In my last few projects, 
 I even started writing everything in Typescript (which I know love, especially when using Webstorm).
 
-I've mostly work in Java at work, so spending so much time with these other languages, working on very different types of
+I mostly work in Java at work, so spending so much time with these other languages, working on very different types of
 problems, has been a good way to improve my overall understanding of software development.  There's been several times
 where I was able to apply something I learned through these projects at work, whether it be applying a specific
 tool/technology or even adopting a different way of thinking about the problem.
