@@ -53,15 +53,6 @@ const Info = styled.div`
   h3 {
     margin: 3px;
     font-size: 1.5em;
-    //display: block;
-    //width: 90vw;
-    //height: 50vw;
-    //max-width: 400px;
-    //max-height: 300px;
-    //
-    //padding: 0;
-    //position: relative;
-    //border: 2px ridge rgba(0, 0, 0, 0.3);
   }
   
   h4 {
@@ -105,10 +96,11 @@ const Links = styled.div`
   }
 `
 
-const Project = ({ key, name, tags, website, github, description }: Project) => {
+const Project = ({ id, name, tags, website, github, description }: Project) => {
+  console.log(id)
   return (
     <ProjectTile>
-      <img src={`images/screenshots/${key}.png`}/>
+      <img src={`images/screenshots/${id}.png`}/>
       <Info>
         <h3>{name}</h3>
         <h4>{tags.join(', ')}</h4>

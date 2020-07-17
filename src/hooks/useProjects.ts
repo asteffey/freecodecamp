@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const toKey = (name: string) => escape(name.replace(' ', '_').toLowerCase())
+const toId = (name: string) => escape(name.split(' ').join('_').toLowerCase())
 
 const useProjects = () => {
   const [projects, setProjects] = useState<Project[]>([])
@@ -14,7 +14,7 @@ const useProjects = () => {
             (value as Project[]).map(({ name, ...other }) => ({
               ...other,
               category,
-              key: toKey(name),
+              id: toId(name),
               name
             }))
           )

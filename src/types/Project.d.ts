@@ -1,6 +1,6 @@
 interface Project {
   category: string
-  key: string
+  id: string
   name: string,
   tags: string[],
   description: string,
