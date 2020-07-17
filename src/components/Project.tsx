@@ -100,17 +100,17 @@ const Project = ({ id, name, tags, website, github, description }: Project) => {
   console.log(id)
   return (
     <ProjectTile>
-      <img src={`images/screenshots/${id}.png`}/>
+      <img src={`images/screenshots/${id}.png`} alt={name} />
       <Info>
         <h3>{name}</h3>
         <h4>{tags.join(', ')}</h4>
         <p>{description}</p>
         <Links>
-          <a href={github} target='_blank' rel='noreferrer'>
+          <a href={github} target='_blank' rel='noopener noreferrer'>
             <img src={externalIcon} alt='Link to site'/>
             View Site
           </a>
-          <a href={website} target='_blank' rel='noreferrer'>
+          <a href={website} target='_blank' rel='noopener noreferrer'>
             <img src={githubIcon} alt='View source at GitHub'/>
             View Source
           </a>
