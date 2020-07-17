@@ -1,5 +1,7 @@
 # Andrew's freeCodeCamp Projects
 
+[![Build Status](https://travis-ci.org/asteffey/freecodecamp.svg?branch=master)](https://travis-ci.org/asteffey/freecodecamp)
+
 This is a repository for the freeCodeCamp projects developed by [Andrew Steffey](https://www.freecodecamp.org/asteffey).
 
 ### Contents
@@ -11,6 +13,8 @@ This repository is organized by each of the different freeCodeCamp certification
 [Front End Libraries](front-end-libraries-projects)
 [Data Visualization](data-visualization-projects)
 [APIs and Microservices](apis-and-microservices-projects)
+
+A project page is also available at https://asteffey.github.io/freecodecamp.
 
 ### Background
 
