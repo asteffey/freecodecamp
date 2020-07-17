@@ -1,0 +1,77 @@
+{
+  "APIs and Microservices Projects": [
+    {
+      "name": "Timestamp Microservice",
+      "description": "A microservice which provides a timestamp API.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-timestamp-microservice",
+      "website": "https://asteffey-timestamp-node.herokuapp.com/"
+    },
+    {
+      "name": "File Metadata Microservice",
+      "description": "A microservice which provides metadata about an uploaded file.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-file-metadata-microservice",
+      "website": "https://asteffey-file-metadata.herokuapp.com/"
+    },
+    {
+      "name": "URL Shortener Microservice",
+      "description": "A URL shortener API.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-url-shortener-microservice",
+      "website": "https://asteffey-url-shortener.herokuapp.com/"
+    },
+    {
+      "name": "Exercise Tracker",
+      "description": "A simple exercise tracker API.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-exercise-tracker",
+      "website": "https://asteffey-exercise-tracker.herokuapp.com/"
+    },
+    {
+      "name": "Request Header Parser Microservice",
+      "description": "A \"who am I\" service which reads info from HTTP headers.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-request-header-parser-microservice",
+      "website": "https://asteffey-whoami.herokuapp.com/"
+    }
+  ],
+  "Data Visualization Projects": [
+    {
+      "name": "Heat Map",
+      "description": "A heat map chart of the average global land-surface temperatures.",
+      "tags": ["React", "D3", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-heat-map",
+      "website": "https://asteffey.github.io/fcc-heat-map/?fcc-test"
+    },
+    {
+      "name": "Choropleth Map",
+      "description": "A choropleth map of U.S. education attainment data.",
+      "tags": ["React", "D3", "JavaScript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-exercise-tracker",
+      "website": "https://asteffey.github.io/fcc-choropleth-map/?fcc-test"
+    },
+    {
+      "name": "Bar Chart",
+      "description": "An area/bar chart of GDP data from 1946 to 2015.",
+      "tags": ["React", "D3", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-bar-chart",
+      "website": "https://asteffey.github.io/fcc-bar-chart/?fcc-test"
+    },
+    {
+      "name": "Scatterplot Graph",
+      "description": "A scatterplot chart of doping information in professional bicycle racing.",
+      "tags": ["React", "D3", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-scatterplot-graph",
+      "website": "https://asteffey.github.io/fcc-scatterplot-graph/?fcc-test"
+    },
+    {
+      "name": "Treemap Diagram",
+      "description": "Treemap charts of kickstarter pledges, movie sales, and video game sales.",
+      "tags": ["React", "D3", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-treemap-diagram",
+      "website": "https://asteffey.github.io/fcc-treemap-diagram/?fcc-test"
+    }
+  ]
+}
+
