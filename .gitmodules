@@ -43,3 +43,18 @@
 [submodule "front-end-libraries-projects/fcc-random-quote-machine"]
 	path = front-end-libraries-projects/fcc-random-quote-machine
 	url = https://github.com/asteffey/fcc-random-quote-machine.git
+[submodule "apis-and-microservices-projects/fcc-exercise-tracker"]
+	path = apis-and-microservices-projects/fcc-exercise-tracker
+	url = https://github.com/asteffey/fcc-exercise-tracker.git
+[submodule "apis-and-microservices-projects/fcc-file-metadata-microservice"]
+	path = apis-and-microservices-projects/fcc-file-metadata-microservice
+	url = https://github.com/asteffey/fcc-file-metadata-microservice.git
+[submodule "apis-and-microservices-projects/fcc-url-shortener-microservice"]
+	path = apis-and-microservices-projects/fcc-url-shortener-microservice
+	url = https://github.com/asteffey/fcc-url-shortener-microservice.git
+[submodule "apis-and-microservices-projects/fcc-request-header-parser-microservice"]
+	path = apis-and-microservices-projects/fcc-request-header-parser-microservice
+	url = https://github.com/asteffey/fcc-request-header-parser-microservice.git
+[submodule "apis-and-microservices-projects/fcc-timestamp-microservice"]
+	path = apis-and-microservices-projects/fcc-timestamp-microservice
+	url = https://github.com/asteffey/fcc-timestamp-microservice.git
