@@ -107,12 +107,12 @@ const Project = ({ id, name, tags, website, github, description }: Project) => {
         <p>{description}</p>
         <Links>
           <a href={github} target='_blank' rel='noopener noreferrer'>
-            <img src={externalIcon} alt='Link to site'/>
-            View Site
-          </a>
-          <a href={website} target='_blank' rel='noopener noreferrer'>
             <img src={githubIcon} alt='View source at GitHub'/>
             View Source
+          </a>
+          <a href={website} target='_blank' rel='noopener noreferrer'>
+            <img src={externalIcon} alt='Link to site'/>
+            View Site
           </a>
         </Links>
       </Info>
