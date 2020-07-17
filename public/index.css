@@ -139,7 +139,7 @@ p {
 }
 
 .nav-visible {
-  height: 152px !important;
+  height: 101px !important;
 }
 
 @media (min-width: 550px) {

@@ -100,7 +100,7 @@ const Project = ({ id, name, tags, website, github, description }: Project) => {
   console.log(id)
   return (
     <ProjectTile>
-      <img src={`images/screenshots/${id}.png`} alt={name} />
+      <img src={`${process.env.PUBLIC_URL}/images/screenshots/${id}.png`} alt={name} />
       <Info>
         <h3>{name}</h3>
         <h4>{tags.join(', ')}</h4>
