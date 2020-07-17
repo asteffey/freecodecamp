@@ -25,7 +25,6 @@ function toId (name) {
     const id = toId(project.name)
     const page = await browser.newPage()
     await page.goto(project.website.replace('?fcc-test', ''), { waitUntil: 'networkidle0' })
-    await page.evaluate(() => window.scrollTo(0, Number.MAX_SAFE_INTEGER))
     await page.waitFor(1000)
     await page.setViewport({
       width: WIDTH,

@@ -1,39 +1,76 @@
 {
-  "APIs and Microservices Projects": [
+  "Responsive Web Design Projects": [
     {
-      "name": "Timestamp Microservice",
-      "description": "A microservice which provides a timestamp API.",
-      "tags": ["Node", "Express", "Typescript", "Jest"],
-      "github": "https://github.com/asteffey/fcc-timestamp-microservice",
-      "website": "https://asteffey-timestamp-node.herokuapp.com/"
+      "name": "Tribute Page",
+      "description": "A tribute page to Tim Berners-Lee",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-tribute-page",
+      "website": "https://asteffey.github.io/fcc-tribute-page?fcc-test"
     },
     {
-      "name": "File Metadata Microservice",
-      "description": "A microservice which provides metadata about an uploaded file.",
-      "tags": ["Node", "Express", "Typescript", "Jest"],
-      "github": "https://github.com/asteffey/fcc-file-metadata-microservice",
-      "website": "https://asteffey-file-metadata.herokuapp.com/"
+      "name": "Personal Portfolio",
+      "description": "A personal portfolio webpage, look familiar?",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-personal-portfolio-webpage",
+      "website": "https://asteffey.github.io/fcc-personal-portfolio-webpage?fcc-test"
     },
     {
-      "name": "URL Shortener Microservice",
-      "description": "A URL shortener API.",
-      "tags": ["Node", "Express", "Typescript", "Jest"],
-      "github": "https://github.com/asteffey/fcc-url-shortener-microservice",
-      "website": "https://asteffey-url-shortener.herokuapp.com/"
+      "name": "Product Landing Page",
+      "description": "A product landing page to obtain lots of water.",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-product-landing-page",
+      "website": "https://asteffey.github.io/fcc-product-landing-page?fcc-test"
     },
     {
-      "name": "Exercise Tracker",
-      "description": "A simple exercise tracker API.",
-      "tags": ["Node", "Express", "Typescript", "Jest"],
-      "github": "https://github.com/asteffey/fcc-exercise-tracker",
-      "website": "https://asteffey-exercise-tracker.herokuapp.com/"
+      "name": "Survey Form",
+      "description": "A survey form, collecting important information on the Beatles.",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-survey-form",
+      "website": "https://asteffey.github.io/fcc-survey-form?fcc-test"
     },
     {
-      "name": "Request Header Parser Microservice",
-      "description": "A \"who am I\" service which reads info from HTTP headers.",
-      "tags": ["Node", "Express", "Typescript", "Jest"],
-      "github": "https://github.com/asteffey/fcc-request-header-parser-microservice",
-      "website": "https://asteffey-whoami.herokuapp.com/"
+      "name": "Technical Documentation",
+      "description": "Technical Documentation for gRPC.",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-technical-documentation-page",
+      "website": "https://asteffey.github.io/fcc-technical-documentation-page?fcc-test"
+    }
+  ],
+  "Front End Libraries Projects": [
+    {
+      "name": "Javascript Calculator",
+      "description": "A web-based calculator.",
+      "tags": ["React", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-javascript-calculator",
+      "website": "https://asteffey.github.io/fcc-javascript-calculator/?fcc-test"
+    },
+    {
+      "name": "Pomodoro Clock",
+      "description": "A Pomodoro clock, to help manage your time.",
+      "tags": ["React", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-pomodoro-clock",
+      "website": "https://asteffey.github.io/fcc-pomodoro-clock?fcc-test"
+    },
+    {
+      "name": "Random Quote Machine",
+      "description": "A random quote machine which contemplates its own subjective existence.",
+      "tags": ["React", "Redux", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-random-quote-machine",
+      "website": "https://asteffey.github.io/fcc-random-quote-machine?fcc-test"
+    },
+    {
+      "name": "Markdown Previewer",
+      "description": "A Markdown previewer which lets to you view your changes in real-time.",
+      "tags": ["React", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-markdown-previewer",
+      "website": "https://asteffey.github.io/fcc-markdown-previewer?fcc-test"
+    },
+    {
+      "name": "Drum Machine",
+      "description": "A sound board with a great beat!",
+      "tags": ["React", "JavaScript"],
+      "github": "https://github.com/asteffey/fcc-drum-machine",
+      "website": "https://asteffey.github.io/fcc-drum-machine/?fcc-test"
     }
   ],
   "Data Visualization Projects": [
@@ -71,6 +108,43 @@
       "tags": ["React", "D3", "JavaScript"],
       "github": "https://github.com/asteffey/fcc-treemap-diagram",
       "website": "https://asteffey.github.io/fcc-treemap-diagram/?fcc-test"
+    }
+  ],
+  "APIs and Microservices Projects": [
+    {
+      "name": "Timestamp Microservice",
+      "description": "A microservice which provides a timestamp API.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-timestamp-microservice",
+      "website": "https://asteffey-timestamp-node.herokuapp.com/"
+    },
+    {
+      "name": "File Metadata Microservice",
+      "description": "A microservice which provides metadata about an uploaded file.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-file-metadata-microservice",
+      "website": "https://asteffey-file-metadata.herokuapp.com/"
+    },
+    {
+      "name": "URL Shortener Microservice",
+      "description": "A URL shortener API.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-url-shortener-microservice",
+      "website": "https://asteffey-url-shortener.herokuapp.com/"
+    },
+    {
+      "name": "Exercise Tracker",
+      "description": "A simple exercise tracker API.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-exercise-tracker",
+      "website": "https://asteffey-exercise-tracker.herokuapp.com/"
+    },
+    {
+      "name": "Request Header Parser Microservice",
+      "description": "A \"who am I\" service which reads info from HTTP headers.",
+      "tags": ["Node", "Express", "Typescript", "Jest"],
+      "github": "https://github.com/asteffey/fcc-request-header-parser-microservice",
+      "website": "https://asteffey-whoami.herokuapp.com/"
     }
   ]
 }
